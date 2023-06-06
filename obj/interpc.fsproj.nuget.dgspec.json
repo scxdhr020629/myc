@@ -1,0 +1,70 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\SecondHalfOfJuniorYear\\FundamentalsOfCompiling\\plzoofs_new\\plzoofs\\microc\\interpc.fsproj": {}
+  },
+  "projects": {
+    "E:\\SecondHalfOfJuniorYear\\FundamentalsOfCompiling\\plzoofs_new\\plzoofs\\microc\\interpc.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\SecondHalfOfJuniorYear\\FundamentalsOfCompiling\\plzoofs_new\\plzoofs\\microc\\interpc.fsproj",
+        "projectName": "interpc",
+        "projectPath": "E:\\SecondHalfOfJuniorYear\\FundamentalsOfCompiling\\plzoofs_new\\plzoofs\\microc\\interpc.fsproj",
+        "packagesPath": "C:\\Users\\ruiji\\.nuget\\packages\\",
+        "outputPath": "E:\\SecondHalfOfJuniorYear\\FundamentalsOfCompiling\\plzoofs_new\\plzoofs\\microc\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ruiji\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "D:\\Soft\\dotnet\\sdk\\6.0.406\\FSharp\\library-packs": {},
+          "https://nuget.cdn.azure.cn/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "FSharp.Core": {
+              "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
+              "target": "Package",
+              "version": "[6.0.7, )",
+              "generatePathProperty": true
+            },
+            "FsLexYacc": {
+              "target": "Package",
+              "version": "[10.2.0, )",
+              "generatePathProperty": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "D:\\Soft\\dotnet\\sdk\\6.0.406\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
