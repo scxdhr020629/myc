@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\SecondHalfOfJuniorYear\\FundamentalsOfCompiling\\plzoofs_new\\plzoofs\\microc\\microc.fsproj": {}
+    "D:\\microc\\microc.fsproj": {}
   },
   "projects": {
-    "E:\\SecondHalfOfJuniorYear\\FundamentalsOfCompiling\\plzoofs_new\\plzoofs\\microc\\microc.fsproj": {
+    "D:\\microc\\microc.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\SecondHalfOfJuniorYear\\FundamentalsOfCompiling\\plzoofs_new\\plzoofs\\microc\\microc.fsproj",
+        "projectUniqueName": "D:\\microc\\microc.fsproj",
         "projectName": "microc",
-        "projectPath": "E:\\SecondHalfOfJuniorYear\\FundamentalsOfCompiling\\plzoofs_new\\plzoofs\\microc\\microc.fsproj",
+        "projectPath": "D:\\microc\\microc.fsproj",
         "packagesPath": "C:\\Users\\ruiji\\.nuget\\packages\\",
-        "outputPath": "E:\\SecondHalfOfJuniorYear\\FundamentalsOfCompiling\\plzoofs_new\\plzoofs\\microc\\obj\\",
+        "outputPath": "D:\\microc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ruiji\\AppData\\Roaming\\NuGet\\NuGet.Config"

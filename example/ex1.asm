@@ -109,6 +109,254 @@ _L1_main_pro_2:
 	push r10
 	;INCSP -1
 	lea rsp, [rsp-8*(-1)]
+	;GVAR 4
+	mov rax ,qword [glovars]
+	sub rax , 4*8
+	push rax
+	;LDI
+	pop rax
+	mov rax,[rax]
+	push rax
+	;CSTI 4
+	push 4
+	;CSTI -8
+	push -8
+	;MUL
+	pop rax
+	pop r10
+	imul r10
+	push rax
+	;ADD
+	pop rax
+	pop r10
+	add rax, r10
+	push rax
+	;CSTI 5
+	push 5
+	;STI
+	pop r10
+	pop rax
+	mov [rax],r10
+	push r10
+	;INCSP -1
+	lea rsp, [rsp-8*(-1)]
+	;GVAR 4
+	mov rax ,qword [glovars]
+	sub rax , 4*8
+	push rax
+	;LDI
+	pop rax
+	mov rax,[rax]
+	push rax
+	;CSTI 5
+	push 5
+	;CSTI -8
+	push -8
+	;MUL
+	pop rax
+	pop r10
+	imul r10
+	push rax
+	;ADD
+	pop rax
+	pop r10
+	add rax, r10
+	push rax
+	;CSTI 5
+	push 5
+	;STI
+	pop r10
+	pop rax
+	mov [rax],r10
+	push r10
+	;INCSP -1
+	lea rsp, [rsp-8*(-1)]
+	;GVAR 4
+	mov rax ,qword [glovars]
+	sub rax , 4*8
+	push rax
+	;LDI
+	pop rax
+	mov rax,[rax]
+	push rax
+	;CSTI 6
+	push 6
+	;CSTI -8
+	push -8
+	;MUL
+	pop rax
+	pop r10
+	imul r10
+	push rax
+	;ADD
+	pop rax
+	pop r10
+	add rax, r10
+	push rax
+	;CSTI 5
+	push 5
+	;STI
+	pop r10
+	pop rax
+	mov [rax],r10
+	push r10
+	;INCSP -1
+	lea rsp, [rsp-8*(-1)]
+	;GVAR 4
+	mov rax ,qword [glovars]
+	sub rax , 4*8
+	push rax
+	;LDI
+	pop rax
+	mov rax,[rax]
+	push rax
+	;CSTI 7
+	push 7
+	;CSTI -8
+	push -8
+	;MUL
+	pop rax
+	pop r10
+	imul r10
+	push rax
+	;ADD
+	pop rax
+	pop r10
+	add rax, r10
+	push rax
+	;CSTI 5
+	push 5
+	;STI
+	pop r10
+	pop rax
+	mov [rax],r10
+	push r10
+	;INCSP -1
+	lea rsp, [rsp-8*(-1)]
+	;GVAR 4
+	mov rax ,qword [glovars]
+	sub rax , 4*8
+	push rax
+	;LDI
+	pop rax
+	mov rax,[rax]
+	push rax
+	;CSTI 9
+	push 9
+	;CSTI -8
+	push -8
+	;MUL
+	pop rax
+	pop r10
+	imul r10
+	push rax
+	;ADD
+	pop rax
+	pop r10
+	add rax, r10
+	push rax
+	;CSTI 5
+	push 5
+	;STI
+	pop r10
+	pop rax
+	mov [rax],r10
+	push r10
+	;INCSP -1
+	lea rsp, [rsp-8*(-1)]
+	;GVAR 4
+	mov rax ,qword [glovars]
+	sub rax , 4*8
+	push rax
+	;LDI
+	pop rax
+	mov rax,[rax]
+	push rax
+	;CSTI 10
+	push 10
+	;CSTI -8
+	push -8
+	;MUL
+	pop rax
+	pop r10
+	imul r10
+	push rax
+	;ADD
+	pop rax
+	pop r10
+	add rax, r10
+	push rax
+	;CSTI 5
+	push 5
+	;STI
+	pop r10
+	pop rax
+	mov [rax],r10
+	push r10
+	;INCSP -1
+	lea rsp, [rsp-8*(-1)]
+	;GVAR 4
+	mov rax ,qword [glovars]
+	sub rax , 4*8
+	push rax
+	;LDI
+	pop rax
+	mov rax,[rax]
+	push rax
+	;CSTI 11
+	push 11
+	;CSTI -8
+	push -8
+	;MUL
+	pop rax
+	pop r10
+	imul r10
+	push rax
+	;ADD
+	pop rax
+	pop r10
+	add rax, r10
+	push rax
+	;CSTI 5
+	push 5
+	;STI
+	pop r10
+	pop rax
+	mov [rax],r10
+	push r10
+	;INCSP -1
+	lea rsp, [rsp-8*(-1)]
+	;GVAR 4
+	mov rax ,qword [glovars]
+	sub rax , 4*8
+	push rax
+	;LDI
+	pop rax
+	mov rax,[rax]
+	push rax
+	;CSTI 12
+	push 12
+	;CSTI -8
+	push -8
+	;MUL
+	pop rax
+	pop r10
+	imul r10
+	push rax
+	;ADD
+	pop rax
+	pop r10
+	add rax, r10
+	push rax
+	;CSTI 5
+	push 5
+	;STI
+	pop r10
+	pop rax
+	mov [rax],r10
+	push r10
+	;INCSP -1
+	lea rsp, [rsp-8*(-1)]
 	;GOTO L3
 	jmp L3
 	

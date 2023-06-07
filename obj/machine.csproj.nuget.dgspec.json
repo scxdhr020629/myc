@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\SecondHalfOfJuniorYear\\FundamentalsOfCompiling\\plzoofs_new\\plzoofs\\microc\\machine.csproj": {}
+    "D:\\microc\\machine.csproj": {}
   },
   "projects": {
-    "E:\\SecondHalfOfJuniorYear\\FundamentalsOfCompiling\\plzoofs_new\\plzoofs\\microc\\machine.csproj": {
+    "D:\\microc\\machine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\SecondHalfOfJuniorYear\\FundamentalsOfCompiling\\plzoofs_new\\plzoofs\\microc\\machine.csproj",
+        "projectUniqueName": "D:\\microc\\machine.csproj",
         "projectName": "machine",
-        "projectPath": "E:\\SecondHalfOfJuniorYear\\FundamentalsOfCompiling\\plzoofs_new\\plzoofs\\microc\\machine.csproj",
+        "projectPath": "D:\\microc\\machine.csproj",
         "packagesPath": "C:\\Users\\ruiji\\.nuget\\packages\\",
-        "outputPath": "E:\\SecondHalfOfJuniorYear\\FundamentalsOfCompiling\\plzoofs_new\\plzoofs\\microc\\obj\\",
+        "outputPath": "D:\\microc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ruiji\\AppData\\Roaming\\NuGet\\NuGet.Config"

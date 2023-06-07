@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "4yeEiVsZVrg7nFXiTHURRJmXjuR9l5zdeuXxWq+UyQ1V2qyuNvo/zd9dfqbLiwOmDOzW8tS3/bBeKG8CzH1bTg==",
+  "dgSpecHash": "j2IHBlQypncKRN+Y/YdUJXiJLLjokq7KKLozBtTKUZOC4k1X7nbH9Xj3KB96oHezNXTs/Ljbp3NfyOeqoKXPfg==",
   "success": true,
-  "projectFilePath": "E:\\SecondHalfOfJuniorYear\\FundamentalsOfCompiling\\plzoofs_new\\plzoofs\\microc\\machine.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\microc\\interpc.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ruiji\\.nuget\\packages\\fsharp.core\\6.0.7\\fsharp.core.6.0.7.nupkg.sha512",
+    "C:\\Users\\ruiji\\.nuget\\packages\\fslexyacc\\10.2.0\\fslexyacc.10.2.0.nupkg.sha512",
+    "C:\\Users\\ruiji\\.nuget\\packages\\fslexyacc.runtime\\10.2.0\\fslexyacc.runtime.10.2.0.nupkg.sha512"
+  ],
   "logs": []
 }
