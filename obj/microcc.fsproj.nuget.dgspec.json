@@ -1,0 +1,70 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\microc\\microcc.fsproj": {}
+  },
+  "projects": {
+    "D:\\microc\\microcc.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\microc\\microcc.fsproj",
+        "projectName": "microcc",
+        "projectPath": "D:\\microc\\microcc.fsproj",
+        "packagesPath": "C:\\Users\\ruiji\\.nuget\\packages\\",
+        "outputPath": "D:\\microc\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ruiji\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "D:\\Soft\\dotnet\\sdk\\6.0.406\\FSharp\\library-packs": {},
+          "https://nuget.cdn.azure.cn/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "FSharp.Core": {
+              "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
+              "target": "Package",
+              "version": "[6.0.7, )",
+              "generatePathProperty": true
+            },
+            "FsLexYacc": {
+              "target": "Package",
+              "version": "[10.0.0, )",
+              "generatePathProperty": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "D:\\Soft\\dotnet\\sdk\\6.0.406\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

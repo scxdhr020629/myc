@@ -95,19 +95,6 @@ _L1_main_pro_2:
 	mov rax ,qword [glovars]
 	sub rax , 0*8
 	push rax
-	;CSTI 5
-	push 5
-	;STI
-	pop r10
-	pop rax
-	mov [rax],r10
-	push r10
-	;INCSP -1
-	lea rsp, [rsp-8*(-1)]
-	;GVAR 0
-	mov rax ,qword [glovars]
-	sub rax , 0*8
-	push rax
 	;LDI
 	pop rax
 	mov rax,[rax]

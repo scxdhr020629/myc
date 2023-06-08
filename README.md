@@ -312,3 +312,86 @@ dotnet build -t:ccrunx86 microc.fsproj
 默认任务`build & run`
 
 - Ctrl+Shift+B
+
+# 功能实现
+
+### 1、增加注释的表示方式(* *)
+
+测试代码testCase/test1.c
+
+未加(* *)时，输入2，输出5：
+
+![test1](assets/test1_1.png)
+
+![test1](assets/test1_2.png)
+
+增加(* *)时，输入2，输出2：
+
+![test1](assets/test1_3.png)
+
+![test1](assets/test1_4.png)
+
+生成的token序列以及抽象语法树：
+
+![test1](assets/test1_5.png)
+
+程序结束后的输出以及store环境：
+
+![test1](assets/test1_6.png)
+
+![test1](assets/test1_7.png)
+
+### 2、实现DoWhile
+
+先执行函数体`body `的内容，因为执行`exec`会改变`store`的内容，所以先返回变更的环境；然后将`do`中表达式的值传给`v`  如果条件等于0（条件为真）就继续执行循环
+
+测试代码testCase/test2.c
+
+输入2，输出0：
+
+![test2](assets/test2_1.png)
+
+![test2](assets/test2_2.png)
+
+输入5，输出10：
+
+![test2](assets/test2_3.png)
+
+生成的token序列以及抽象语法树：
+
+![test2](assets/test2_4.png)
+
+程序结束后的输出以及store环境：
+
+![test2](assets/test2_5.png)
+
+### 3、实现DoUntil
+
+与DoWhile类似，只不过`v`不等于0（条件为假）继续执行循环
+
+测试代码testCase/test3.c
+
+无输入，经过do until循环后，输出5：
+
+![test3](assets/test3_1.png)
+
+![test3](assets/test3_2.png)
+
+生成的token序列以及抽象语法树：
+
+![test3](assets/test3_3.png)
+
+程序结束后的输出以及store环境：
+
+![test3](assets/test3_4.png)
+
+
+
+
+
+
+
+
+
+
+
