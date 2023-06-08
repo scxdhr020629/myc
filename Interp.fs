@@ -333,6 +333,41 @@ and eval e locEnv gloEnv store : int * store =
             (v2, store2)
         else
             (v3, store3)
+    | AddAss (acc, e) ->
+        let (v, store1) = eval e locEnv gloEnv store
+        let (loc, store2) = access acc locEnv gloEnv store1
+        let oldX = getSto store2 loc
+        let newX = oldX + v
+        let store4 = setSto store2 loc newX
+        (newX, store4)
+    | MinusAss (acc, e) ->
+        let (v, store1) = eval e locEnv gloEnv store
+        let (loc, store2) = access acc locEnv gloEnv store1
+        let oldX = getSto store2 loc
+        let newX = oldX - v
+        let store4 = setSto store2 loc newX
+        (newX, store4)
+    | TimesAss (acc, e) ->
+        let (v, store1) = eval e locEnv gloEnv store
+        let (loc, store2) = access acc locEnv gloEnv store1
+        let oldX = getSto store2 loc
+        let newX = oldX * v
+        let store4 = setSto store2 loc newX
+        (newX, store4)
+    | DivAss (acc, e) ->
+        let (v, store1) = eval e locEnv gloEnv store
+        let (loc, store2) = access acc locEnv gloEnv store1
+        let oldX = getSto store2 loc
+        let newX = oldX / v
+        let store4 = setSto store2 loc newX
+        (newX, store4)
+    | ModAss (acc, e) ->
+        let (v, store1) = eval e locEnv gloEnv store
+        let (loc, store2) = access acc locEnv gloEnv store1
+        let oldX = getSto store2 loc
+        let newX = oldX % v
+        let store4 = setSto store2 loc newX
+        (newX, store4)
     | Access acc ->
         let (loc, store1) = access acc locEnv gloEnv store
         (getSto store1 loc, store1)

@@ -22,6 +22,11 @@ type typ =
 and expr =                           // 表达式，右值                                                
   | Access of access                 (* x    or  *p    or  a[e]     *) //访问左值（右值）
   | Assign of access * expr          (* x=e  or  *p=e  or  a[e]=e   *)
+  | AddAss of access * expr          (* += 表达式 *)
+  | MinusAss of access * expr        (* -= 表达式 *)
+  | TimesAss of access * expr        (* *= 表达式 *)
+  | DivAss of access * expr          (* /= 表达式 *)
+  | ModAss of access * expr          (* %= 表达式 *)
   | OpAssign of string * access * expr
   | Addr of access                   (* &x   or  &*p   or  &a[e]    *)
   | CstI of int                      (* Constant                    *)

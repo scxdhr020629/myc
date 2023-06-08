@@ -389,6 +389,8 @@ dotnet build -t:ccrunx86 microc.fsproj
 
 三目运算符为右值表达式，如果`?`前的表达式的值为真时，将`:`前的值存入，否则存入`:`后的值
 
+测试代码testCase/test4.c
+
 当`?`前的表达式的值为真时：
 
 ![test4](assets/test4_1.png)
@@ -413,6 +415,8 @@ dotnet build -t:ccrunx86 microc.fsproj
 
 属于右值表达式
 
+测试代码testCase/test5.c
+
 x++：
 
 ![test5](assets/test5_1.png)
@@ -433,25 +437,21 @@ x--：
 
 ![test5](assets/test5_6.png)
 
+### 6、+=、-=、*=、/=、%=
 
+测试代码testCase/test6.c
 
+![test6](assets/test6_1.png)
 
+![test6](assets/test6_2.png)
 
+生成的token序列以及抽象语法树：
 
+![test6](assets/test6_3.png)
 
+程序结束后的输出以及store环境：
 
-
-
-
-
-
-
-
-
-
-
-
-
+![test6](assets/test6_4.png)
 
 
 

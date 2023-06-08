@@ -30,6 +30,11 @@ type token =
   | MOD
   | ADDADD
   | MINUSMINUS
+  | ADDASS
+  | MINUSASS
+  | TIMESASS
+  | DIVASS
+  | MODASS
   | CHAR
   | ELSE
   | IF
@@ -76,6 +81,11 @@ type tokenId =
     | TOKEN_MOD
     | TOKEN_ADDADD
     | TOKEN_MINUSMINUS
+    | TOKEN_ADDASS
+    | TOKEN_MINUSASS
+    | TOKEN_TIMESASS
+    | TOKEN_DIVASS
+    | TOKEN_MODASS
     | TOKEN_CHAR
     | TOKEN_ELSE
     | TOKEN_IF
