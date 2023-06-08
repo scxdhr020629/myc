@@ -385,6 +385,48 @@ dotnet build -t:ccrunx86 microc.fsproj
 
 ![test3](assets/test3_4.png)
 
+### 4、三目运算
+
+三目运算符为右值表达式，如果`?`前的表达式的值为真时，将`:`前的值存入，否则存入`:`后的值
+
+当`?`前的表达式的值为真时：
+
+![test4](assets/test4_1.png)
+
+![test4](assets/test4_2.png)
+
+当`?`前的表达式的值为假时：
+
+![test4](assets/test4_3.png)
+
+![test4](assets/test4_4.png)
+
+生成的token序列以及抽象语法树：
+
+![test4](assets/test4_5.png)
+
+程序结束后的输出以及store环境：
+
+![test4](assets/test4_6.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

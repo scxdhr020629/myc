@@ -324,6 +324,15 @@ and stmtordec stmtordec locEnv gloEnv store =
 
 and eval e locEnv gloEnv store : int * store =
     match e with
+    | Bino (e1, e2, e3) ->
+        let (v1, store1) = eval e1 locEnv gloEnv store
+        let (v2, store2) = eval e2 locEnv gloEnv store1
+        let (v3, store3) = eval e3 locEnv gloEnv store2
+
+        if v1 <> 0 then
+            (v2, store2)
+        else
+            (v3, store3)
     | Access acc ->
         let (loc, store1) = access acc locEnv gloEnv store
         (getSto store1 loc, store1)
@@ -332,6 +341,14 @@ and eval e locEnv gloEnv store : int * store =
         let (res, store2) = eval e locEnv gloEnv store1
         (res, setSto store2 loc res)
     | CstI i -> (i, store)
+    | AddAdd (acc) ->
+        let (loc, store1) = access acc locEnv gloEnv store
+        let e = getSto store1 loc + 1
+        (e, setSto store1 loc e)
+    | MinusMinus (acc) ->
+        let (loc, store1) = access acc locEnv gloEnv store
+        let e = getSto store1 loc - 1
+        (e, setSto store1 loc e)
     | Addr acc -> access acc locEnv gloEnv store
     | Prim1 (ope, e1) ->
         let (i1, store1) = eval e1 locEnv gloEnv store
