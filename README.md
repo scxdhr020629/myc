@@ -409,6 +409,44 @@ dotnet build -t:ccrunx86 microc.fsproj
 
 ![test4](assets/test4_6.png)
 
+### 5、自增自减++、--
+
+属于右值表达式
+
+x++：
+
+![test5](assets/test5_1.png)
+
+![test5](assets/test5_2.png)
+
+x--：
+
+![test5](assets/test5_3.png)
+
+![test5](assets/test5_4.png)
+
+生成的token序列以及抽象语法树：
+
+![test5](assets/test5_5.png)
+
+程序结束后的输出以及store环境：
+
+![test5](assets/test5_6.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
