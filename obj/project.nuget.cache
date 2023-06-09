@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "j2IHBlQypncKRN+Y/YdUJXiJLLjokq7KKLozBtTKUZOC4k1X7nbH9Xj3KB96oHezNXTs/Ljbp3NfyOeqoKXPfg==",
+  "dgSpecHash": "9UzzWAcTthU9IjP87YjJQ3Z7CSNOemcz/WWRUb8dVKyXZIRhpdJXVos7dleT/B553tbrTjNTM0kqcGZtF6HpwA==",
   "success": true,
-  "projectFilePath": "D:\\microc\\interpc.fsproj",
+  "projectFilePath": "D:\\microc\\microc.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\ruiji\\.nuget\\packages\\fsharp.core\\6.0.7\\fsharp.core.6.0.7.nupkg.sha512",
     "C:\\Users\\ruiji\\.nuget\\packages\\fslexyacc\\10.2.0\\fslexyacc.10.2.0.nupkg.sha512",
