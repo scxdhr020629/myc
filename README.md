@@ -541,11 +541,15 @@ x--：
 
 ![test12](assets/test12_4.png)
 
+### 13、 两个下划线开头的名字__是内部保留，不允许
 
+测试代码testCase/test13.c
 
+![test13](assets/test13_1.png)4
 
+出错提醒：cannot use variable with start __
 
-
+![test13](assets/test13_2.png)
 
 
 
