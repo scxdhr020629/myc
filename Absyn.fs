@@ -39,8 +39,10 @@ and expr =                           // 表达式，右值
   | Andalso of expr * expr           (* Sequential and              *)
   | Orelse of expr * expr            (* Sequential or               *)
   | Call of string * expr list       (* Function call f(...)        *)
-  | AddAdd of access                 (* ++表达式 *)
-  | MinusMinus of access             (* --表达式 *)
+  | PreAdd of access                 (* ++i *)
+  | PreMinus of access               (* --i *)
+  | NextAdd of access                (* x++ *)
+  | NextMinus of access                (* x-- *)
   | Bino of expr * expr * expr       (* 三目运算 *)
                                                                    
 and access =                         //左值，存储的位置                                            

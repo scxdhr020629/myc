@@ -432,14 +432,22 @@ and eval e locEnv gloEnv store : int * store =
         let (res, store2) = eval e locEnv gloEnv store1
         (res, setSto store2 loc res)
     | CstI i -> (i, store)
-    | AddAdd (acc) ->
+    | PreAdd (acc) ->   // 自增++i
         let (loc, store1) = access acc locEnv gloEnv store
-        let e = getSto store1 loc + 1
-        (e, setSto store1 loc e)
-    | MinusMinus (acc) ->
+        let e = getSto store1 loc
+        (e+1, setSto store1 loc (e+1))
+    | PreMinus (acc) ->
         let (loc, store1) = access acc locEnv gloEnv store
-        let e = getSto store1 loc - 1
-        (e, setSto store1 loc e)
+        let e = getSto store1 loc
+        (e-1, setSto store1 loc (e-1))
+    | NextAdd acc ->    // i++
+        let (loc, store1) = access acc locEnv gloEnv store
+        let e = getSto store1 loc
+        (e+1, setSto store1 loc e)  // 先返回值 再加
+    | NextMinus acc -> 
+        let (loc, store1) = access acc locEnv gloEnv store
+        let e = getSto store1 loc
+        (e-1, setSto store1 loc e)
     | Addr acc -> access acc locEnv gloEnv store
     | Prim1 (ope, e1) ->
         let (i1, store1) = eval e1 locEnv gloEnv store

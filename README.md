@@ -453,7 +453,7 @@ x--：
 
 ![test6](assets/test6_4.png)
 
-### 7、for i in range(5){...}
+### 7、for i in range(until){...}
 
 测试代码testCase/test7.c
 
@@ -461,7 +461,7 @@ x--：
 
 ![test7](assets/test7_2.png)
 
-### 8、for i in range(5, 10){...}
+### 8、for i in range(start, until){...}
 
 测试代码testCase/test8.c
 
@@ -477,7 +477,7 @@ x--：
 
 ![test8](assets/test8_4.png)
 
-### 9、for i in range(1, 10, 2){...}
+### 9、for i in range(start, until, step){...}
 
 测试代码testCase/test9.c
 
@@ -493,7 +493,21 @@ x--：
 
 ![test9](assets/test9_4.png)
 
+### 10、i++ i--和++i --i
 
+测试代码testCase/test10.c
+
+![test10](assets/test10_1.png)
+
+![test10](assets/test10_2.png)
+
+生成的token序列以及抽象语法树：
+
+![test10](assets/test10_3.png)
+
+程序结束后的输出以及store环境：
+
+![test10](assets/test10_4.png)
 
 
 
