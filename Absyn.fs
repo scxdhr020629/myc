@@ -70,11 +70,13 @@ and stmt =
 and stmtordec =                                                    
   | Dec of typ * string              (* Local variable declaration  *)
   | Stmt of stmt                     (* A statement                 *)
+  | DecWithAssign of  typ * string * expr (*声明且定义*)
 
 // 顶级声明 可以是函数声明或变量声明
 and topdec = 
   | Fundec of typ option * string * (typ * string) list * stmt
   | Vardec of typ * string
+  | VarDecWithAssign of typ * string * expr
 
 // 程序是顶级声明的列表
 and program = 

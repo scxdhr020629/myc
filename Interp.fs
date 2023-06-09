@@ -381,13 +381,17 @@ let rec exec stmt (locEnv: locEnv) (gloEnv: gloEnv) (store: store) : store =
 
     | Case (e,body) ->
         exec body locEnv gloEnv store
-
     | Return _ -> failwith "return not implemented" // 解释器没有实现 return
 
 and stmtordec stmtordec locEnv gloEnv store =
     match stmtordec with
     | Stmt stmt -> (locEnv, exec stmt locEnv gloEnv store)
     | Dec (typ, x) -> allocate (typ, x) locEnv store
+    | DecWithAssign (typ,x,e) -> 
+        let (loc1, store1) = allocate (typ, x) locEnv store
+        let (loc2 , store2) = access (AccVar x) loc1 gloEnv store
+        let (res, store3) = eval e locEnv gloEnv store2
+        (loc1, setSto store3 loc2 res)
 
 (* Evaluating micro-C expressions *)
 

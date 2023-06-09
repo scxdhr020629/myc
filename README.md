@@ -525,11 +525,21 @@ x--：
 
 ![test11](assets/test11_4.png)
 
+### 12、变量声明时赋值
 
+测试代码testCase/test12.c
 
+![test12](assets/test12_1.png)
 
+![test12](assets/test12_2.png)
 
+生成的token序列以及抽象语法树：
 
+![test12](assets/test12_3.png)
+
+程序结束后的输出以及store环境：
+
+![test12](assets/test12_4.png)
 
 
 
