@@ -248,6 +248,43 @@ let initEnvAndStore (topdecs: topdec list) : locEnv * funEnv * store =
 
 let rec exec stmt (locEnv: locEnv) (gloEnv: gloEnv) (store: store) : store =
     match stmt with
+    | ForInRange1 (name, e1, body) ->
+        (* 定义 x， 并赋初值 0 *)
+        let startVal = 0
+        let (locEnv1, store1) = allocate (TypI, name) locEnv store
+        let (_, nextLoc) = locEnv1
+        let locX = nextLoc - 1
+        let store2 = setSto store1 locX startVal
+
+        // (* 计算 e， 得值 untilVal *)
+        let (utilVal, store3) = eval e1 locEnv1 gloEnv store2
+
+        let rec loop x store =
+            if x < utilVal then
+                let store1 = exec body locEnv1 gloEnv store
+                let store2 = setSto store1 locX (x + 1)
+                loop (getSto store2 locX) store2
+            else
+                store1
+
+        loop startVal store3
+    | ForInRange2 (name, e1, e2, body) ->
+        let (locEnv1, store1) = allocate (TypI, name) locEnv store
+        let (_, nextLoc) = locEnv1
+        let locX = nextLoc - 1
+        let (startVal, store2) = eval e1 locEnv1 gloEnv store1
+        let store3 = setSto store2 locX startVal
+        let (utilVal, store4) = eval e2 locEnv1 gloEnv store3
+
+        let rec loop x store =
+            if x < utilVal then
+                let store1 = exec body locEnv1 gloEnv store
+                let store2 = setSto store1 locX (x + 1)
+                loop (getSto store2 locX) store2
+            else
+                store1
+
+        loop startVal store4
     | If (e, stmt1, stmt2) ->
         let (v, store1) = eval e locEnv gloEnv store
 

@@ -453,13 +453,29 @@ x--：
 
 ![test6](assets/test6_4.png)
 
+### 7、for i in range(5){...}
 
+测试代码testCase/test7.c
 
+![test7](assets/test7_1.png)
 
+![test7](assets/test7_2.png)
 
+### 8、for i in range(5, 10){...}
 
+测试代码testCase/test8.c
 
+![test8](assets/test8_1.png)
 
+![test8](assets/test8_2.png)
+
+生成的token序列以及抽象语法树：
+
+![test8](assets/test8_3.png)
+
+程序结束后的输出以及store环境：
+
+![test8](assets/test8_4.png)
 
 
 

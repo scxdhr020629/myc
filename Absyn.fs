@@ -56,6 +56,10 @@ and stmt =
   | Block of stmtordec list          (* Block: grouping and scope   *)
   | DoWhile of stmt * expr
   | DoUntil of stmt * expr
+  | For of expr * expr * stmt * stmt (* for(i=0;i<5;i+=1;){...} *)
+  | ForInRange1 of string * expr * stmt (* for x in range(5){...} *)
+  | ForInRange2 of string * expr * expr * stmt (* for x in range(5,10){...} *)
+  | ForInRange3 of string * expr * expr * expr * stmt (* for x in range(5,10,2){...} *)
   // 语句块内部，可以是变量声明 或语句的列表                                                              
 
 and stmtordec =                                                    

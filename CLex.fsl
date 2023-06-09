@@ -20,6 +20,9 @@ let keyword s =
     | "char"    -> CHAR    // 返回对应的Token ,Token 定义于 CPar.fsl 文件中
     | "else"    -> ELSE
     | "false"   -> CSTBOOL 0
+    | "for"     -> FOR
+    | "in"      -> IN
+    | "range"   -> RANGE
     | "if"      -> IF
     | "int"     -> INT
     | "null"    -> NULL
