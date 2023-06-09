@@ -509,6 +509,32 @@ x--：
 
 ![test10](assets/test10_4.png)
 
+### 11、switch case
+
+测试代码testCase/test11.c
+
+![test11](assets/test11_1.png)
+
+![test11](assets/test11_2.png)
+
+生成的token序列以及抽象语法树：
+
+![test11](assets/test11_3.png)
+
+程序结束后的输出以及store环境：
+
+![test11](assets/test11_4.png)
+
+
+
+
+
+
+
+
+
+
+
 
 
 

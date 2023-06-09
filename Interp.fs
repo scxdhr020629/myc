@@ -368,6 +368,19 @@ let rec exec stmt (locEnv: locEnv) (gloEnv: gloEnv) (store: store) : store =
             | s1 :: sr -> loop sr (stmtordec s1 locEnv gloEnv store)
 
         loop stmts (locEnv, store)
+    | Switch(e,body) ->
+        let (v,store1) = eval e locEnv gloEnv store
+        let rec fit l =
+          match l with
+          | [] -> store1
+          | Case(e1,body1) :: tail ->
+              let (v2,store2) = eval e1 locEnv gloEnv store
+              if v2 = v then exec body1 locEnv gloEnv store
+                        else fit tail
+        fit body
+
+    | Case (e,body) ->
+        exec body locEnv gloEnv store
 
     | Return _ -> failwith "return not implemented" // 解释器没有实现 return
 
