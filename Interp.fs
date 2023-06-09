@@ -285,6 +285,25 @@ let rec exec stmt (locEnv: locEnv) (gloEnv: gloEnv) (store: store) : store =
                 store1
 
         loop startVal store4
+    | ForInRange3 (name, e1, e2, e3, body) ->
+        let (locEnv1, store1) = allocate (TypI, name) locEnv store
+        let (_, nextLoc) = locEnv1
+        let locX = nextLoc - 1
+        let (startVal, store2) = eval e1 locEnv1 gloEnv store1
+        let store3 = setSto store2 locX startVal
+        let (utilVal, store4) = eval e2 locEnv1 gloEnv store3
+        let (step, store5) = eval e3 locEnv1 gloEnv store4
+
+        let rec loop x store =
+            if (x < utilVal && step > 0)
+               || (x > utilVal && step < 0) then
+                let store1 = exec body locEnv1 gloEnv store
+                let store2 = setSto store1 locX (x + step)
+                loop (getSto store2 locX) store2
+            else
+                store1
+
+        loop startVal store5
     | If (e, stmt1, stmt2) ->
         let (v, store1) = eval e locEnv gloEnv store
 
