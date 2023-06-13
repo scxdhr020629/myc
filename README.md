@@ -429,6 +429,8 @@ dotnet build -t:ccrunx86 microc.fsproj
 
 测试出来出问题了。  2022.6.13
 
+这一部分舍弃掉，使用后面的10部分
+
 x++：
 
 ![test5](assets/test5_1.png)
@@ -453,6 +455,8 @@ x--：
 
 测试代码testCase/test6.c
 
+更名为 assignmentOperators.c
+
 ![test6](assets/test6_1.png)
 
 ![test6](assets/test6_2.png)
@@ -469,6 +473,8 @@ x--：
 
 测试代码testCase/test7.c
 
+更名为 forIn1.c
+
 ![test7](assets/test7_1.png)
 
 ![test7](assets/test7_2.png)
@@ -476,6 +482,8 @@ x--：
 ### 8、for i in range(start, until){...}
 
 测试代码testCase/test8.c
+
+更名为 forIn2.c
 
 ![test8](assets/test8_1.png)
 
@@ -491,7 +499,7 @@ x--：
 
 ### 9、for i in range(start, until, step){...}
 
-测试代码testCase/test9.c
+测试代码testCase/forIn3.c
 
 ![test9](assets/test9_1.png)
 
@@ -509,6 +517,8 @@ x--：
 
 测试代码testCase/test10.c
 
+重新命名为 incAndDec.c
+
 ![test10](assets/test10_1.png)
 
 ![test10](assets/test10_2.png)
@@ -524,6 +534,8 @@ x--：
 ### 11、switch case
 
 测试代码testCase/test11.c
+
+更名为 mySwitch.c
 
 ![test11](assets/test11_1.png)
 
