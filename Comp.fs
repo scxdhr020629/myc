@@ -50,6 +50,7 @@ let rec lookup env x =
     | (y, v) :: yr -> if x = y then v else lookup yr x
 
 (* A global variable has an absolute address, a local one has an offset: *)
+// 全局变量有一个绝对地址，局部变量有一个偏移量
 
 type Var =
     | Glovar of int (* absolute address in stack           *)
@@ -74,21 +75,30 @@ h 是整型数组，长度为 3，g是整数，下一个空闲位置是 5
  (0,0)(1,0)(2,0)(3,0) (4,1) ......
 *)
 
+// Var*typ表示变量和类型的键值对
+// (Var*typ) Env表示讲变量和类型的键值对映射到环境中
+// 因此VarEnv表示将变量和类型映射到环境，并附带一个整数值的数据结构
+// 变量环境
 type VarEnv = (Var * typ) Env * int
 
 (* The function environment maps function name to label and parameter decs *)
 
 type Paramdecs = (typ * string) list
 
+// 函数环境
 type FunEnv = (label * typ option * Paramdecs) Env
 
 let isX86Instr = ref false
 
 (* Bind declared variable in env and generate code to allocate it: *)
+//在env中绑定已声明的变量，并生成代码来分配它
 // kind : Glovar / Locvar
+//递归函数allocateWithMsg和辅助函数allocate
+//在变量环境中绑定已声明的变量，并生成代码来分配存储空间
 let rec allocateWithMsg (kind: int -> Var) (typ, x) (varEnv: VarEnv) =
     let varEnv, instrs = allocate (kind: int -> Var) (typ, x) (varEnv: VarEnv)
 
+    // 使用msg函数输入一条消息，显示VarEnv和instrs的内容
     msg
     <| "\nalloc\n"
        + sprintf "%A\n" varEnv
@@ -101,27 +111,31 @@ and allocate (kind: int -> Var) (typ, x) (varEnv: VarEnv) : VarEnv * instr list 
     msg $"allocate called!{(x, typ)}"
 
     // newloc 下个空闲存储位置
+    // 将varEnv解构为env和newloc两个变量
     let (env, newloc) = varEnv
 
+    // 模式匹配语句，根据typ的不同情况进行匹配
     match typ with
     | TypA (TypA _, _) -> raise (Failure "allocate: array of arrays not permitted")
     | TypA (t, Some i) ->
+        // 创建一个新环境newEnv，将(x, (kind(newloc + i), typ))添加到环境中，newloc+i+1用于更新下一个空闲位置
         let newEnv = ((x, (kind (newloc + i), typ)) :: env, newloc + i + 1) //数组内容占用 i个位置,数组变量占用1个位置
 
+        // 同时生成一组指令code，用于分配数组所需的空间，并将newEnv code作为结果返回
         let code = [ INCSP i; GETSP; OFFSET(i - 1); SUB ]
         // info (fun () -> printf "new varEnv: %A\n" newEnv)
         (newEnv, code)
+    // 如果typ不匹配上述情况，表示其他类型
     | _ ->
+        // 创建一个新的环境newEnv，将(x, (kind(newloc), typ))添加到环境中，newloc+1用于更新下一个空闲位置
         let newEnv = ((x, (kind (newloc), typ)) :: env, newloc + 1)
-
+        // 生成一组指令code，用于分配一个位置的空间，并将newEnv和code作为结果返回
         let code = [ INCSP 1 ]
-
         // info (fun () -> printf "new varEnv: %A\n" newEnv) // 调试 显示分配后环境变化
-
         (newEnv, code)
 
 (* Bind declared parameters in env: *)
-
+// 用于将参数绑定到变量环境中
 let bindParam (env, newloc) (typ, x) : VarEnv =
     ((x, (Locvar newloc, typ)) :: env, newloc + 1)
 
@@ -130,7 +144,7 @@ let bindParams paras ((env, newloc): VarEnv) : VarEnv = List.fold bindParam (env
 (* ------------------------------------------------------------------- *)
 
 (* Build environments for global variables and functions *)
-
+// 用于构建全局变量环境和函数环境
 let makeGlobalEnvs (topdecs: topdec list) : VarEnv * FunEnv * instr list =
     let rec addv decs varEnv funEnv =
 
@@ -166,7 +180,7 @@ let x86patch code =
    * varenv  is the local and global variable environment
    * funEnv  is the global function environment
 *)
-
+// 编译microc的语句
 let rec cStmt stmt (varEnv: VarEnv) (funEnv: FunEnv) : instr list =
     match stmt with
     | If (e, stmt1, stmt2) ->
@@ -204,7 +218,7 @@ let rec cStmt stmt (varEnv: VarEnv) (funEnv: FunEnv) : instr list =
 
     | Return None -> [ RET(snd varEnv - 1) ]
     | Return (Some e) -> cExpr e varEnv funEnv @ [ RET(snd varEnv) ]
-
+// 编译语句或声明
 and cStmtOrDec stmtOrDec (varEnv: VarEnv) (funEnv: FunEnv) : VarEnv * instr list =
     match stmtOrDec with
     | Stmt stmt -> (varEnv, cStmt stmt varEnv funEnv)
@@ -221,9 +235,16 @@ and cStmtOrDec stmtOrDec (varEnv: VarEnv) (funEnv: FunEnv) : VarEnv * instr list
    execution of instrs will leave the rvalue of expression e on the
    stack top (and thus extend the current stack frame with one element).
 *)
-
+// 编译microc的表达式
 and cExpr (e: expr) (varEnv: VarEnv) (funEnv: FunEnv) : instr list =
     match e with
+    | AddAss (acc, e) ->
+        let accInstrs=cAccess acc varEnv funEnv
+        let eInstrs=cExpr e varEnv funEnv
+        let updateInstrs=accInstrs @ [DUP; LDI]
+        let addInstrs=[ADD]
+        let storeInstrs=accInstrs @ [STI]
+        updateInstrs @ eInstrs @ addInstrs @ storeInstrs
     | Access acc -> cAccess acc varEnv funEnv @ [ LDI ]
     | Assign (acc, e) ->
         cAccess acc varEnv funEnv
@@ -279,7 +300,7 @@ and cExpr (e: expr) (varEnv: VarEnv) (funEnv: FunEnv) : instr list =
 
 (* Generate code to access variable, dereference pointer or index array.
    The effect of the compiled code is to leave an lvalue on the stack.   *)
-
+// 生成访问变量、解引用指针、数组索引
 and cAccess access varEnv funEnv : instr list =
     match access with
     | AccVar x ->

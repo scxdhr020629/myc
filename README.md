@@ -469,6 +469,22 @@ x--：
 
 ![test6](assets/test6_4.png)
 
+编译器：
+
+测试代码：
+
+![test6](assets/test6_7.png)
+
+成功编译：
+
+![test6](assets/test6_5.png)
+
+![test6](assets/test6_8.png)
+
+虚拟机构建与执行：输出为2
+
+![test6](assets/test6_6.png)
+
 ### 7、for i in range(until){...}
 
 测试代码testCase/test7.c

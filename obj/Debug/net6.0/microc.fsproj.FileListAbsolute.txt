@@ -26,7 +26,10 @@ E:\SecondHalfOfJuniorYear\FundamentalsOfCompiling\plzoofs_new\plzoofs\microc\obj
 E:\SecondHalfOfJuniorYear\FundamentalsOfCompiling\plzoofs_new\plzoofs\microc\obj\Debug\net6.0\microc.dll
 E:\SecondHalfOfJuniorYear\FundamentalsOfCompiling\plzoofs_new\plzoofs\microc\obj\Debug\net6.0\microc.pdb
 E:\SecondHalfOfJuniorYear\FundamentalsOfCompiling\plzoofs_new\plzoofs\microc\obj\Debug\net6.0\microc.genruntimeconfig.cache
-D:\microc\obj\Debug\net6.0\microc.fsproj.AssemblyReference.cache
+d:\GitHubRepository\microc\obj\Debug\net6.0\microc.AssemblyInfoInputs.cache
+d:\GitHubRepository\microc\obj\Debug\net6.0\microc.AssemblyInfo.fs
+d:\GitHubRepository\microc\obj\Debug\net6.0\microc.dll
+d:\GitHubRepository\microc\obj\Debug\net6.0\microc.pdb
 D:\microc\bin\Debug\net6.0\microc.exe
 D:\microc\bin\Debug\net6.0\microc.deps.json
 D:\microc\bin\Debug\net6.0\microc.runtimeconfig.json
@@ -47,6 +50,7 @@ D:\microc\bin\Debug\net6.0\ru\FSharp.Core.resources.dll
 D:\microc\bin\Debug\net6.0\tr\FSharp.Core.resources.dll
 D:\microc\bin\Debug\net6.0\zh-Hans\FSharp.Core.resources.dll
 D:\microc\bin\Debug\net6.0\zh-Hant\FSharp.Core.resources.dll
+D:\microc\obj\Debug\net6.0\microc.fsproj.AssemblyReference.cache
 D:\microc\obj\Debug\net6.0\microc.AssemblyInfoInputs.cache
 D:\microc\obj\Debug\net6.0\microc.AssemblyInfo.fs
 D:\microc\obj\Debug\net6.0\microc.fsproj.CoreCompileInputs.cache
@@ -54,7 +58,3 @@ D:\microc\obj\Debug\net6.0\microc.fsproj.CopyComplete
 D:\microc\obj\Debug\net6.0\microc.dll
 D:\microc\obj\Debug\net6.0\microc.pdb
 D:\microc\obj\Debug\net6.0\microc.genruntimeconfig.cache
-d:\GitHubRepository\microc\obj\Debug\net6.0\microc.AssemblyInfoInputs.cache
-d:\GitHubRepository\microc\obj\Debug\net6.0\microc.AssemblyInfo.fs
-d:\GitHubRepository\microc\obj\Debug\net6.0\microc.dll
-d:\GitHubRepository\microc\obj\Debug\net6.0\microc.pdb
