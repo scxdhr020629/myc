@@ -1,27 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "D:\\microc\\interpc.fsproj": {}
+    "D:\\GitHubRepository\\microc\\interpc.fsproj": {}
   },
   "projects": {
-    "D:\\microc\\interpc.fsproj": {
+    "D:\\GitHubRepository\\microc\\interpc.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\microc\\interpc.fsproj",
+        "projectUniqueName": "D:\\GitHubRepository\\microc\\interpc.fsproj",
         "projectName": "interpc",
-        "projectPath": "D:\\microc\\interpc.fsproj",
-        "packagesPath": "C:\\Users\\ruiji\\.nuget\\packages\\",
-        "outputPath": "D:\\microc\\obj\\",
+        "projectPath": "D:\\GitHubRepository\\microc\\interpc.fsproj",
+        "packagesPath": "C:\\Users\\12820\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHubRepository\\microc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ruiji\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\12820\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "D:\\Soft\\dotnet\\sdk\\6.0.406\\FSharp\\library-packs": {},
-          "https://nuget.cdn.azure.cn/v3/index.json": {}
+          "C:\\Program Files\\dotnet\\sdk\\7.0.202\\FSharp\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -37,7 +37,7 @@
             "FSharp.Core": {
               "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
               "target": "Package",
-              "version": "[6.0.7, )",
+              "version": "[7.0.200, )",
               "generatePathProperty": true
             },
             "FsLexYacc": {
@@ -57,12 +57,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.15, 6.0.15]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.15, 6.0.15]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.15, 6.0.15]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.15, 6.0.15]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "D:\\Soft\\dotnet\\sdk\\6.0.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

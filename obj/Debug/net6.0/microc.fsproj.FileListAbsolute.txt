@@ -54,3 +54,7 @@ D:\microc\obj\Debug\net6.0\microc.fsproj.CopyComplete
 D:\microc\obj\Debug\net6.0\microc.dll
 D:\microc\obj\Debug\net6.0\microc.pdb
 D:\microc\obj\Debug\net6.0\microc.genruntimeconfig.cache
+d:\GitHubRepository\microc\obj\Debug\net6.0\microc.AssemblyInfoInputs.cache
+d:\GitHubRepository\microc\obj\Debug\net6.0\microc.AssemblyInfo.fs
+d:\GitHubRepository\microc\obj\Debug\net6.0\microc.dll
+d:\GitHubRepository\microc\obj\Debug\net6.0\microc.pdb

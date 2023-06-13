@@ -319,6 +319,8 @@ dotnet build -t:ccrunx86 microc.fsproj
 
 测试代码testCase/test1.c
 
+文件更名为 starComment.c
+
 未加(* *)时，输入2，输出5：
 
 ![test1](assets/test1_1.png)
@@ -347,6 +349,8 @@ dotnet build -t:ccrunx86 microc.fsproj
 
 测试代码testCase/test2.c
 
+更名为 doWhile.c
+
 输入2，输出0：
 
 ![test2](assets/test2_1.png)
@@ -371,6 +375,8 @@ dotnet build -t:ccrunx86 microc.fsproj
 
 测试代码testCase/test3.c
 
+更名为 doUntil.c
+
 无输入，经过do until循环后，输出5：
 
 ![test3](assets/test3_1.png)
@@ -390,6 +396,10 @@ dotnet build -t:ccrunx86 microc.fsproj
 三目运算符为右值表达式，如果`?`前的表达式的值为真时，将`:`前的值存入，否则存入`:`后的值
 
 测试代码testCase/test4.c
+
+更名为 tco.c
+
+
 
 当`?`前的表达式的值为真时：
 
