@@ -3,6 +3,7 @@ void main(){
   x=6;
   do {
       x--;
-      print x;
+      
   } while(x>3);
+  print x;
 }

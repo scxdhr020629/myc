@@ -397,9 +397,7 @@ dotnet build -t:ccrunx86 microc.fsproj
 
 测试代码testCase/test4.c
 
-更名为 tco.c
-
-
+更名为 tco.c  (*ternary conditional operator*)
 
 当`?`前的表达式的值为真时：
 
@@ -426,6 +424,10 @@ dotnet build -t:ccrunx86 microc.fsproj
 属于右值表达式
 
 测试代码testCase/test5.c
+
+更名为 myAdd.c
+
+测试出来出问题了。  2022.6.13
 
 x++：
 
