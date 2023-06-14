@@ -403,6 +403,16 @@ dotnet build -t:ccrunx86 microc.fsproj
 
 ![test3](assets/test3_4.png)
 
+**编译器：**
+
+测试：
+
+![test3](assets/test3_5.png)
+
+输出：5
+
+![test3](assets/test3_6.png)
+
 ### 4、三目运算
 
 三目运算符为右值表达式，如果`?`前的表达式的值为真时，将`:`前的值存入，否则存入`:`后的值
