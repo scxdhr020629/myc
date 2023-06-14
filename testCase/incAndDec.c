@@ -1,11 +1,11 @@
 void main(){
-  int x;
-  x=6;
-  print x--;
-  print x;
+  // int x;
+  // x=6;
+  // print x--;
+  // print x;
 
-  print x++;
-  print x;
+  // print x++;
+  // print x;
 
   int i;
   i=10;

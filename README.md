@@ -469,7 +469,7 @@ x--：
 
 ![test6](assets/test6_4.png)
 
-编译器：
++=编译器：
 
 测试代码：
 
@@ -546,6 +546,16 @@ x--：
 程序结束后的输出以及store环境：
 
 ![test10](assets/test10_4.png)
+
+编译器：
+
+测试：
+
+![test10](assets/test10_5.png)
+
+输出：9 9 10 10
+
+![test10](assets/test10_6.png)
 
 ### 11、switch case
 

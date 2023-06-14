@@ -245,6 +245,8 @@ and cExpr (e: expr) (varEnv: VarEnv) (funEnv: FunEnv) : instr list =
         let addInstrs=[ADD]
         let storeInstrs=accInstrs @ [STI]
         updateInstrs @ eInstrs @ addInstrs @ storeInstrs
+    | PreAdd (acc)   -> cAccess acc varEnv funEnv @ [DUP] @ [LDI] @ [CSTI 1] @ [ADD] @ [STI]
+    | PreMinus (acc) -> cAccess acc varEnv funEnv @ [DUP] @ [LDI] @ [CSTI 1] @ [SUB] @ [STI]
     | Access acc -> cAccess acc varEnv funEnv @ [ LDI ]
     | Assign (acc, e) ->
         cAccess acc varEnv funEnv
