@@ -369,6 +369,18 @@ dotnet build -t:ccrunx86 microc.fsproj
 
 ![test2](assets/test2_5.png)
 
+编译器：
+
+测试：
+
+![test2](assets/test2_6.png)
+
+输出：（输入5 ，输出10）
+
+![test2](assets/test2_7.png)
+
+![test2](assets/test2_8.png)
+
 ### 3、实现DoUntil
 
 与DoWhile类似，只不过`v`不等于0（条件为假）继续执行循环
