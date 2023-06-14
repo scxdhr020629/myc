@@ -593,13 +593,23 @@ x--：
 
 ![test12](assets/test12_4.png)
 
+**编译器：**
+
+测试：
+
+![test12](assets/test12_5.png)
+
+输出：1
+
+![test12](assets/test12_6.png)
+
 ### 13、 两个下划线开头的名字__是内部保留，不允许
 
 测试代码testCase/test13.c
 
 改名为 _var.c
 
-![test13](assets/test13_1.png)4
+![test13](assets/test13_1.png)
 
 出错提醒：cannot use variable with start __
 
