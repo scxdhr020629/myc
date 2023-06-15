@@ -36,7 +36,6 @@ and expr =                           // 表达式，右值
   | Prim1 of string * expr           (* Unary primitive operator    *)
   | Prim2 of string * expr * expr    (* Binary primitive operator   *)
   | Prim3 of expr * expr * expr      (* 三目运算 e1 ? e2 : e3        *)
-  | ConstFloat of float32   
   | Andalso of expr * expr           (* Sequential and              *)
   | Orelse of expr * expr            (* Sequential or               *)
   | Call of string * expr list       (* Function call f(...)        *)

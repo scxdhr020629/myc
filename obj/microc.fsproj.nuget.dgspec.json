@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "D:\\microc\\microc.fsproj": {}
   },
   "projects": {
@@ -13,19 +12,6 @@
         "projectPath": "D:\\microc\\microc.fsproj",
         "packagesPath": "C:\\Users\\ruiji\\.nuget\\packages\\",
         "outputPath": "D:\\microc\\obj\\",
-=======
-    "d:\\GitHubRepository\\microc\\microc.fsproj": {}
-  },
-  "projects": {
-    "d:\\GitHubRepository\\microc\\microc.fsproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "d:\\GitHubRepository\\microc\\microc.fsproj",
-        "projectName": "microc",
-        "projectPath": "d:\\GitHubRepository\\microc\\microc.fsproj",
-        "packagesPath": "C:\\Users\\12820\\.nuget\\packages\\",
-        "outputPath": "d:\\GitHubRepository\\microc\\obj\\",
->>>>>>> 527d89821cecf1efc1d378e9ca84348cde1aa398
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ruiji\\AppData\\Roaming\\NuGet\\NuGet.Config"

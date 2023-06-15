@@ -30,3 +30,5 @@ d:\GitHubRepository\microc\obj\Debug\net6.0\microcc.AssemblyInfoInputs.cache
 d:\GitHubRepository\microc\obj\Debug\net6.0\microcc.AssemblyInfo.fs
 d:\GitHubRepository\microc\obj\Debug\net6.0\microcc.dll
 d:\GitHubRepository\microc\obj\Debug\net6.0\microcc.pdb
+d:\GitHubRepository\stable_test\microc\obj\Debug\net6.0\microcc.AssemblyInfoInputs.cache
+d:\GitHubRepository\stable_test\microc\obj\Debug\net6.0\microcc.AssemblyInfo.fs
