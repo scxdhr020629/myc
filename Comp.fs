@@ -227,27 +227,6 @@ let rec cStmt stmt (varEnv: VarEnv) (funEnv: FunEnv) : instr list =
                 @ [ Label labtest ] 
                 @ cExpr e varEnv funEnv  
                 @ [ IFZERO labbegin ]
-    | Switch (e, cases) ->
-        let rec searchcases c =
-            match c with
-            | Case (e, body) :: tail ->
-                let labend = newLabel ()
-                let labfin = newLabel ()
-
-                [DUP]
-                  @ cExpr e varEnv funEnv
-                    @ [EQ]
-                      @ [ IFZERO labend ]
-                        @ cStmt body varEnv funEnv
-                          @ [ GOTO labfin ]
-                            @ [ Label labend ]
-                              @ searchcases tail
-                                @ [ Label labfin ]
-            | [] -> []
-
-        cExpr e varEnv funEnv 
-          @ searchcases cases
-            @[INCSP -1]
     | Expr e -> cExpr e varEnv funEnv @ [ INCSP -1 ]
     | Block stmts ->
 
@@ -306,6 +285,13 @@ and cExpr (e: expr) (varEnv: VarEnv) (funEnv: FunEnv) : instr list =
         cAccess acc varEnv funEnv
         @ cExpr e varEnv funEnv @ [ STI ]
     | CstI i -> [ CSTI i ]
+    | CstChar c -> // 
+        let c = (int c) //
+        [ CSTI c ]  // 
+    | ConstFloat f -> 
+        let bytes = System.BitConverter.GetBytes(float32(f))
+        let v = System.BitConverter.ToInt32(bytes, 0)
+        [ CSTI v ]    
     | Addr acc -> cAccess acc varEnv funEnv
     | Prim1 (ope, e1) ->
         cExpr e1 varEnv funEnv

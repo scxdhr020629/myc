@@ -35,7 +35,8 @@ class Machine {
     GOTO = 16, IFZERO = 17, IFNZRO = 18, CALL = 19, TCALL = 20, RET = 21, 
     PRINTI = 22, PRINTC = 23, 
     LDARGS = 24,
-    STOP = 25;
+    STOP = 25,
+    CSTF = 26, CSTC = 27;
 
   final static int STACKSIZE = 1000;
   
@@ -66,6 +67,10 @@ class Machine {
       switch (p[pc++]) {
       case CSTI:
         s[sp+1] = p[pc++]; sp++; break;
+      case CSTF:
+        s[sp + 1] = Float.intBitsToFloat(p[pc++]); sp++; break;
+      case CSTC:
+        s[sp + 1] = (char)(p[pc++].intValue()); sp++; break;        
       case ADD: 
         s[sp-1] = s[sp-1] + s[sp]; sp--; break;
       case SUB: 
@@ -145,6 +150,8 @@ class Machine {
   static String insname(int[] p, int pc) {
     switch (p[pc]) {
     case CSTI:   return "CSTI " + p[pc+1]; 
+    case CSTF:   return "CSTF " + p[pc + 1];
+    case CSTC:   return "CSTC " + p[pc + 1];    
     case ADD:    return "ADD";
     case SUB:    return "SUB";
     case MUL:    return "MUL";

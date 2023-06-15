@@ -1,325 +1,114 @@
-## Micro C 文件说明
+# 实验报告
+
+- 课程名称：编程语言原理与编译
+- 实验项目：期末大作业
+- 专业班级：计算机2001 计算机2002
+- 学生学号：32001027 320010
+- 学生姓名：常睿嘉 司晨旭 
+- 实验指导教师：郭鸣
+
+## 实验内容
+
+#### 分工：
+
+| 姓名   | 学号     | 班级       | 任务                               | 权重   |
+| ------ | -------- | ---------- | ---------------------------------- | ------ |
+| Name   | No.      | Class      | Task                               | Factor |
+| 常睿嘉 | 32001027 | 计算机2001 | 解释器（主要）、编译器、测试、文档 | 0.95   |
+| 司晨旭 | 320010   | 计算机2002 | 解释器、编译器（主要）、测试、文档 | 0.95   |
+
+#### 成员代码提交日志：
+
+- 常睿嘉：
+
+![commit_crj](assets/commit1.png)
+
+![commit_crj](assets/commit2.png)
+
+- 司晨旭：
+
+
+
+
+
+#### 项目自评等级(1-5)：
+
+| 功能                               | 评分 | 备注 |
+| ---------------------------------- | ---- | ---- |
+| 注释(* *)                          | 5    |      |
+| __开头的名字不允许                 | 5    |      |
+| DoWhile循环                        | 5    |      |
+| DoUntil循环                        | 5    |      |
+| 三目运算                           | 5    |      |
+| +=、-=、*=、/=、%=语法糖           | 5    |      |
+| for循环                            | 5    |      |
+| for i in range(until)              | 5    |      |
+| for i in range(start, until)       | 5    |      |
+| for i in range(start, until, step) | 5    |      |
+| i++  i--                           | 4    |      |
+| ++i --i                            | 4    |      |
+| switch case                        | 4    |      |
+| 数据初值定义                       | 5    |      |
+| float类型                          | 4    |      |
+| bool类型                           | 5    |      |
+| 各类数组，数组检查                 | 5    |      |
+|                                    |      |      |
+
+#### 项目说明：
+
+- 前端：由`F#`语言编写而成
+  - `Absyn.fs`: 抽象语法树结构的定义
+  - `CLex.fsl`: 词法定义
+    - `CLex.fs`：由`CLex.fsl`生成的词法分析器
+  - `CPar.fsy`: 语法定义
+    - `CPar.fs`：由`CPar.fsy`生成的语法分析器
+  - `Parse.fs`: 语法解析器（从文件或字符串中获取抽象语法树）
+  - `Interp.fs`: 解释器
+  - `Comp.fs`: 编译器
+  - `Contcomp.fs`: 优化编译器
+  - `Machine.fs`: 栈式虚拟机指令的定义及将其转化为机器指令序列
+- 后端：由`C`语言编写而成
+  - `machine.c`: 栈式虚拟机
+- 测试：测试程序放在`testCase`文件夹内
+
+- 使用方法
+
+  **解释器：**
+
+  ```
+  dotnet restore  interpc.fsproj
+  dotnet clean  interpc.fsproj
+  dotnet build -v n interpc.fsproj
+  dotnet run -p interpc.fsproj .\example\myex1.c 3  # 解释执行
+  ```
+
+  **编译器：**
+
+  ```
+  dotnet restore  microc.fsproj
+  dotnet clean  microc.fsproj
+  dotnet build  microc.fsproj  
+  gcc machine.c -o machine  # 不用每次  改了machine.c再编译过即可
+  
+  dotnet run -p microc.fsproj .\example\myex1.c 3  # 编译
+  .\machine.exe .\example\myex1.out 3  # 执行
+  ```
+
+  **优化编译器**
+
+  ```
+  dotnet restore  microcc.fsproj
+  dotnet clean  microcc.fsproj
+  dotnet build  microcc.fsproj
+  dotnet run -p microcc.fsproj .\example\myex1.c 3
+  .\machine.exe .\example\myex1.out 3
+  ```
 
-### interpreter  解释器
+#### 功能实现及解决技术要点说明：
 
-```sh
-Absyn.fs micro-C abstract syntax                              抽象语法
-grammar.txt informal micro-C grammar and parser specification 文法定义
-CLex.fsl micro-C lexer specification                          fslex词法定义
-CPar.fsy micro-C parser specification                         fsyacc语法定义
-Parse.fs micro-C parser                                       语法解析器
-Interp.fs micro-C interpreter                                 解释器
-example/ex1.c-ex25.c micro-C example programs                 例子程序
-interpc.fsproj                                                项目文件
+##### 1、增加注释的表示方式(* *)
 
-```
-
-### compiler  编译器
-
-```sh
-StackMachine.fs definition of micro-C stack machine instructions  VM 指令定义
-Machine.java micro-C stack machine in Java                   VM 实现 java
-machine.c micro-C stack machine in C                         VM 实现 c 
-machine.cs micro-C stack machine in CSharp                   VM 实现 c#
-machine.csproj  machine project file                         VM 项目文件
-
-Comp.fs compile micro-C to stack machine code             编译器 输出 stack vm 指令序列
-Backend.fs x86_64 backend                                 编译器后端 翻译 stack vm 指令序列到 x86_64
-driver.c     runtime support                                 运行时支持程序
-prog0 example stack machine program: print numbers           字节码 案例，输出数字
-prog1 example stack machine program: loop 20m times          字节码 案例，循环2千万次
-microc.fsproj                                                编译器项目文件
-```
-
-### continuation compiler  优化编译器
-
-```sh
-Contcomp.fs compile micro-C backwards                   优化编译器
-microcc.fsproj                                          优化编译器项目文件
-```
-
-## 构建与执行
-
-### A 解释器
-
-#### A.1  解释器 interpc.exe 构建
-
-```sh
-# 编译解释器 interpc.exe 命令行程序 
-dotnet restore  interpc.fsproj   # 可选
-dotnet clean  interpc.fsproj     # 可选
-dotnet build -v n interpc.fsproj # 构建./bin/Debug/net6.0/interpc.exe ，-v n查看详细生成过程
-
-# 执行解释器
-#./bin/Debug/net6.0/interpc.exe example/ex1.c 8
-dotnet run --project interpc.fsproj example/ex1.c 8
-dotnet run --project interpc.fsproj -g example/ex1.c 8  # 显示token AST 等调试信息
-
-# one-liner 
-# 自行修改 interpc.fsproj  解释example目录下的源文件
-# 
-# <MyItem Include="example\function1.c" Args ="8"/> 
-
-dotnet build -t:ccrun interpc.fsproj
-```
-
-#### A.2 dotnet命令行fsi中运行解释器
-
-```sh
-# 生成扫描器
-dotnet "C:\Users\gm\.nuget\packages\fslexyacc\10.2.0\build\/fslex/netcoreapp3.1\fslex.dll"  -o "CLex.fs" --module CLex --unicode CLex.fsl
-
-# 生成分析器
-dotnet "C:\Users\gm\.nuget\packages\fslexyacc\10.2.0\build\/fsyacc/netcoreapp3.1\fsyacc.dll"  -o "CPar.fs" --module CPar CPar.fsy
-
-# 命令行运行程序
-dotnet fsi 
-
-#r "nuget: FsLexYacc";;  //添加包引用
-#load "Absyn.fs" "Debug.fs" "CPar.fs" "CLex.fs" "Parse.fs" "Interp.fs" "ParseAndRun.fs" ;; 
-
-open ParseAndRun;;    //导入模块 ParseAndRun
-fromFile "example\ex1.c";;    //显示 ex1.c的语法树
-run (fromFile "example\ex1.c") [17];; //解释执行 ex1.c
-run (fromFile "example\ex11.c") [8];; //解释执行 ex11.c
-
-Debug.debug <-  true  //打开调试
-
-run (fromFile "example\ex1.c") [8];; //解释执行 ex1.c
-run (fromFile "example\ex11.c") [8];; //解释执行 ex11.
-#q;;
-
-```
-
-解释器的主入口 是 interp.fs 中的 run 函数，具体看代码的注释
-
-### B 编译器
-
-编译器生成 `example` 目录下的栈式虚拟机 `*.out` 文件，
-`*.out` 文件 用 `步骤 D` 中的虚拟机执行。
-
-#### B.1 microc编译器构建步骤
-
-```sh
-# 构建 microc.exe 编译器程序 
-dotnet restore  microc.fsproj # 可选
-dotnet clean  microc.fsproj   # 可选
-dotnet build  microc.fsproj   # 构建 ./bin/Debug/net6.0/microc.exe
-
-dotnet run --project microc.fsproj example/ex1.c    # 执行编译器，编译 ex1.c，并输出  ex1.out 文件
-dotnet run --project microc.fsproj example/ex9.c  # 执行编译器，编译 ex19.c，并输出  ex19.out 文件
-dotnet run --project microc.fsproj -g example/ex1.c   # -g 查看调试信息
-
-#./bin/Debug/net6.0/microc.exe -g example/ex1.c  # 直接执行构建的.exe文件，同上效果
-
-
-```
-
-#### B.2 dotnet fsi 中运行编译器
-
-```sh
-# 启动fsi
-dotnet fsi
-
-#r "nuget: FsLexYacc";;
-
-#load "Absyn.fs"  "CPar.fs" "CLex.fs" "Debug.fs" "Parse.fs" "StackMachine.fs" "Backend.fs" "Comp.fs" "ParseAndComp.fs";;   
-
-# 运行编译器
-open ParseAndComp;;
-compileToFile (fromFile "example\ex1.c") "ex1";; 
-
-Debug.debug <-  true   # 打开调试
-compileToFile (fromFile "example\ex4.c") "ex4";; # 观察变量在环境上的分配
-#q;;
-
-
-# fsi 中运行
-#time "on";;  // 打开时间跟踪
-
-# 参考A. 中的命令 比较下解释执行解释执行 与 编译执行 ex11.c 的速度
-```
-
-#### B.3 编译并运行 example 目录下多个文件
-
-- 用到了 build  -t 任务 选项
-
-- 运行编译器生成的 *.out  文件 需要先完成 D.2 ，在当前目录生成虚拟机`machine.exe`
-
-```sh
-dotnet build -t:cclean microc.fsproj    # 清除编译器生成的文件  example/*.ins *.out
-dotnet build -t:ccrun microc.fsproj     # 编译并运行 example 目录下多个文件 
-
-```
-
-
-### C 优化编译器
-
-#### C.1  优化编译器 microcc.exe 构建步骤
-
-```sh
-
-dotnet restore  microcc.fsproj
-dotnet clean  microcc.fsproj
-dotnet build  microcc.fsproj           # 构建编译器
-
-dotnet run --project microcc.fsproj ex11.c    # 执行编译器
-./bin/Debug/net6.0/microcc.exe ex11.c  # 直接执行
-
-```
-
-#### C.2 dotnet fsi 中运行 backwards编译器  
-
-```sh
-dotnet fsi 
-
-#r "nuget: FsLexYacc";;
-
-#load "Absyn.fs"  "CPar.fs" "CLex.fs" "Debug.fs" "Parse.fs" "StackMachine.fs" "Backend.fs" "Contcomp.fs" "ParseAndComp.fs";;   
-
-open ParseAndContcomp;;
-contCompileToFile (fromFile "example\ex11.c") "ex11.out";;
-#q;;
-```
-
-### D 虚拟机构建与运行
-虚拟机有 `c#` `c` `java` 三个版本
-- 运行下面的命令 查看 fac 0 , fac 3 的栈帧
-- 理解栈式虚拟机执行流程
-
-执行前，先在B中 编译出 *.out 虚拟机指令文件
-
-#### D.1 c#
-
-```sh
-dotnet clean machine.csproj
-dotnet build machine.csproj   #构建虚拟机 machine.exe 
-
-./bin/Debug/net6.0/machine.exe ./example/ex9.out 3  # 运行虚拟机，执行 ex9.out 
-./bin/Debug/net6.0/machine.exe -t ./example/ex9.out 0  # 运行虚拟机，执行 ex9.out ，-t 查看跟踪信息
-./bin/Debug/net6.0/machine.exe -t ./example/ex9.out 3  // 运行虚拟机，执行 ex9.out ，-t 查看跟踪信息
-```
-
-#### D.2 C
-
-```sh
-# 编译 c 虚拟机
-gcc -o machine.exe machine.c
-
-# 虚拟机执行指令
-machine.exe ./example/ex9.out 3
-
-# 调试执行指令
-machine.exe -trace ./example/ex9.out 0  # -trace  并查看跟踪信息
-machine.exe -trace ./example/ex9.out 3
-
-```
-
-#### D.3 Java
-
-```sh
-javac Machine.java
-java Machine ./example/ex9.out 3
-
-javac Machinetrace.java
-java Machinetrace ./example/ex9.out 0
-java Machinetrace ./example/ex9.out 3
-```
-
-#### E 编译到x86_64
-
-#### 预备软件
-nasm, gcc
-
-```sh
-#Linux
-$sudo apt-get install build-essential nasm gcc
-
-# Windows
-
-# nasm 汇编器
-https://www.nasm.us/pub/nasm/releasebuilds/2.15.05/win64/
-
-# gcc 编译器
-https://jmeubank.github.io/tdm-gcc/download/
-
-w10 在 9.2.0 版本测试通过
-
-```
-
-#### 步骤
-
-栈式虚拟机指令编译到x86_64，简单示例
-
-分步构建
-
-```sh
-
-# 生成 ex1.asm 汇编码 nasm 格式
-dotnet run --project microc.fsproj example/ex1.c
-
-# 汇编生成目标文件
-nasm -f win64 example/ex1.asm -o example/ex1.o   # win
-# nasm -f elf64 ex1.asm -o ex1.o   # linux  
-
-# 编译运行时文件
-gcc -c driver.c
-
-# 链接运行时，生成可执行程序
-gcc -g -o example/ex1.exe driver.o example/ex1.o
-
-# 执行
-example/ex1.exe 8 
-
-```
-
-单步构建
-
-```sh
-# 使用 build target 编译 ex1.c
-# 可修改 microc.fsproj 编译其他案例文件
-
-dotnet build -t:ccrunx86 microc.fsproj
-
-```
-
-#### 调用约定
-
-- caller
-  - 调用函数前，在栈上放置函数参数，个数为m
-  - 将rbp入栈，调用函数
-- callee
-  - 保存返回地址r，老的栈帧指针bp
-  - 将参数搬移到本函数的栈帧初始位置
-  - 将rbp设置到第一个参数的位置
-  - rbx 保存函数的返回值
-
-#### 数据在栈上的保存方式
-
-- 如数组 a[2] 的元素按次序排在栈上，末尾保存数组变量a，内容是首元素 e0的地址
-- e0, e1, a  
-
-访问数组，先通过`BP`得到`a`的位置，然后通过`a` 得到首地址 e0，最后计算数组下标偏移地址，访问对应数组元素
-
-- 全局变量在栈上依次保存，x86 汇编中，glovar 是全局变量的起始地址
-
-#### x86 bugs
-
-- *(p + 2) 指针运算不支持
-
-#### tasks.json
-
-默认任务`build & run`
-
-- Ctrl+Shift+B
-
-# 功能实现
-
-### 1、增加注释的表示方式(* *)
-
-测试代码testCase/test1.c
-
-文件更名为 starComment.c
+测试代码testCase/starComment.c
 
 未加(* *)时，输入2，输出5：
 
@@ -343,13 +132,11 @@ dotnet build -t:ccrunx86 microc.fsproj
 
 ![test1](assets/test1_7.png)
 
-### 2、实现DoWhile
+##### 2、实现DoWhile
 
 先执行函数体`body `的内容，因为执行`exec`会改变`store`的内容，所以先返回变更的环境；然后将`do`中表达式的值传给`v`  如果条件等于0（条件为真）就继续执行循环
 
-测试代码testCase/test2.c
-
-更名为 doWhile.c
+测试代码testCase/doWhile.c
 
 输入2，输出0：
 
@@ -369,7 +156,7 @@ dotnet build -t:ccrunx86 microc.fsproj
 
 ![test2](assets/test2_5.png)
 
-编译器：
+**编译器：**
 
 测试：
 
@@ -381,7 +168,7 @@ dotnet build -t:ccrunx86 microc.fsproj
 
 ![test2](assets/test2_8.png)
 
-### 3、实现DoUntil
+##### 3、实现DoUntil
 
 与DoWhile类似，只不过`v`不等于0（条件为假）继续执行循环
 
@@ -413,13 +200,11 @@ dotnet build -t:ccrunx86 microc.fsproj
 
 ![test3](assets/test3_6.png)
 
-### 4、三目运算
+##### 4、三目运算
 
 三目运算符为右值表达式，如果`?`前的表达式的值为真时，将`:`前的值存入，否则存入`:`后的值
 
-测试代码testCase/test4.c
-
-更名为 tco.c  (*ternary conditional operator*)
+测试代码testCase/tco.c  (*ternary conditional operator*)
 
 当`?`前的表达式的值为真时：
 
@@ -441,43 +226,9 @@ dotnet build -t:ccrunx86 microc.fsproj
 
 ![test4](assets/test4_6.png)
 
-### 5、自增自减++、--
+##### 5、+=、-=、*=、/=、%=
 
-属于右值表达式
-
-测试代码testCase/test5.c
-
-更名为 myAdd.c
-
-测试出来出问题了。  2022.6.13
-
-这一部分舍弃掉，使用后面的10部分
-
-x++：
-
-![test5](assets/test5_1.png)
-
-![test5](assets/test5_2.png)
-
-x--：
-
-![test5](assets/test5_3.png)
-
-![test5](assets/test5_4.png)
-
-生成的token序列以及抽象语法树：
-
-![test5](assets/test5_5.png)
-
-程序结束后的输出以及store环境：
-
-![test5](assets/test5_6.png)
-
-### 6、+=、-=、*=、/=、%=
-
-测试代码testCase/test6.c
-
-更名为 assignmentOperators.c
+测试代码testCase/assignmentOperators.c
 
 ![test6](assets/test6_1.png)
 
@@ -491,7 +242,7 @@ x--：
 
 ![test6](assets/test6_4.png)
 
-+=编译器：
+**+=编译器：**
 
 测试代码：
 
@@ -507,7 +258,7 @@ x--：
 
 ![test6](assets/test6_6.png)
 
-### 7、for i in range(until){...}
+##### 6、for i in range(until){...}
 
 测试代码testCase/test7.c
 
@@ -517,11 +268,9 @@ x--：
 
 ![test7](assets/test7_2.png)
 
-### 8、for i in range(start, until){...}
+##### 7、for i in range(start, until){...}
 
-测试代码testCase/test8.c
-
-更名为 forIn2.c
+测试代码testCase/forIn2.c
 
 ![test8](assets/test8_1.png)
 
@@ -535,7 +284,7 @@ x--：
 
 ![test8](assets/test8_4.png)
 
-### 9、for i in range(start, until, step){...}
+##### 8、for i in range(start, until, step){...}
 
 测试代码testCase/forIn3.c
 
@@ -551,11 +300,9 @@ x--：
 
 ![test9](assets/test9_4.png)
 
-### 10、i++ i--和++i --i
+##### 9、i++ i--和++i --i
 
-测试代码testCase/test10.c
-
-重新命名为 incAndDec.c
+测试代码testCase/incAndDec.c
 
 ![test10](assets/test10_1.png)
 
@@ -569,7 +316,7 @@ x--：
 
 ![test10](assets/test10_4.png)
 
-编译器：
+**编译器：**
 
 测试：
 
@@ -579,11 +326,9 @@ x--：
 
 ![test10](assets/test10_6.png)
 
-### 11、switch case
+##### 10、switch case
 
-测试代码testCase/test11.c
-
-更名为 mySwitch.c
+测试代码testCase/mySwitch.c
 
 ![test11](assets/test11_1.png)
 
@@ -607,11 +352,9 @@ x--：
 
 ![test11](assets/test11_6.png)
 
-### 12、变量声明时赋值
+##### 11、变量声明时赋值
 
-测试代码testCase/test12.c
-
-更名为 varInit.c
+测试代码testCase/varInit.c
 
 ![test12](assets/test12_1.png)
 
@@ -635,7 +378,7 @@ x--：
 
 ![test12](assets/test12_6.png)
 
-### 13、 两个下划线开头的名字__是内部保留，不允许
+##### 12、 两个下划线开头的名字__是内部保留，不允许
 
 测试代码testCase/test13.c
 
@@ -647,25 +390,37 @@ x--：
 
 ![test13](assets/test13_2.png)
 
-### 14、float/double/long/char/string
+##### 13、float
 
-在CLex.fsl词法分析中通过F#识别，添加对应的识别规则，在CPar.fsy语法分析中添加对应的词元token，在Absyn.fs抽象语法树中定义关键字
-
-float：单精度浮点型，识别格式为'数字'+'.'+'数字'+'f(F)'，在栈中占一个地址单位
-
-double：双精度浮点型，识别格式为'数字'+'.'+'数字'，通过字节运算拆分成两个32位整数，在虚拟机中转化为小数，在栈中占两个地址单位
-
-long：长整型，识别格式位'数字'+'l(L)'，通过字节运算拆分成两个32位，交给虚拟机处理，在栈中占两个地址单位
-
-char：字符型，识别格式位'''+'字符'+'''，在栈中占一个地址单位
+##### 14、bool等
 
 
 
 
 
+#### 心得体会（结合自己情况具体说明）：
+
+大作业开发过程心得：
+
+- 常睿嘉： 
+
+  这学期的学业压力较重，特别是在面对编译原理这门比较难的科目时，我认为这门课程是大学四年相对困难的课程，之前完全没有接触过相关内容，在课堂上学习到的知识总是一知半解，课后还需要在理论知识上花费大量的时间去理解，觉得知识量太广太深。经历过这次大作业后，真正动手做工程，不仅仅停留在表面的理论，收获颇丰，对编译的本质和F#这门语言有了更具深刻的理解。
+
+- 司晨旭：
 
 
 
+本课程建议：
+
+- 常睿嘉： 
+
+  课程难度还是有点高，特别是大作业，突然从理论到写代码。希望老师能在平时课堂上就带着大家写写代码，实现小功能，讲解流程和理论。
+
+  希望老师平时能讲一讲平时作业或者提供相应的答案
+
+  希望大作业的比分降低一些，照顾大部分人的过课率
+
+- 司晨旭：
 
 
 
