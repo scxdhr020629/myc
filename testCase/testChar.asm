@@ -76,8 +76,8 @@ _L1_main_pro_2:
 	pop r10
 	add rax, r10
 	push rax
-	;CSTI 3
-	push 3
+	;CSTI 97
+	push 97
 	;STI
 	pop r10
 	pop rax

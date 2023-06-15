@@ -26,9 +26,9 @@ D:\microc\obj\Debug\net6.0\microcc.fsproj.CopyComplete
 D:\microc\obj\Debug\net6.0\microcc.dll
 D:\microc\obj\Debug\net6.0\microcc.pdb
 D:\microc\obj\Debug\net6.0\microcc.genruntimeconfig.cache
+d:\GitHubRepository\stable_test\microc\obj\Debug\net6.0\microcc.AssemblyInfoInputs.cache
+d:\GitHubRepository\stable_test\microc\obj\Debug\net6.0\microcc.AssemblyInfo.fs
 d:\GitHubRepository\microc\obj\Debug\net6.0\microcc.AssemblyInfoInputs.cache
 d:\GitHubRepository\microc\obj\Debug\net6.0\microcc.AssemblyInfo.fs
 d:\GitHubRepository\microc\obj\Debug\net6.0\microcc.dll
 d:\GitHubRepository\microc\obj\Debug\net6.0\microcc.pdb
-d:\GitHubRepository\stable_test\microc\obj\Debug\net6.0\microcc.AssemblyInfoInputs.cache
-d:\GitHubRepository\stable_test\microc\obj\Debug\net6.0\microcc.AssemblyInfo.fs

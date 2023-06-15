@@ -30,7 +30,7 @@ and expr =                           // 表达式，右值
   | OpAssign of string * access * expr
   | Addr of access                   (* &x   or  &*p   or  &a[e]    *)
   | CstI of int                      (* Constant                    *)
-  | CstC of char
+  | CstC of char                      //char
   | CstS of string
   | CstF of float32
   | Prim1 of string * expr           (* Unary primitive operator    *)

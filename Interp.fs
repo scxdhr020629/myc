@@ -449,6 +449,7 @@ and eval e locEnv gloEnv store : int * store =
         let (res, store2) = eval e locEnv gloEnv store1
         (res, setSto store2 loc res)
     | CstI i -> (i, store)
+    | CstC c -> ((int c), store)    
     | PreAdd (acc) ->   // 自增++i
         let (loc, store1) = access acc locEnv gloEnv store
         let e = getSto store1 loc

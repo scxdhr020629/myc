@@ -52,6 +52,7 @@
 | float类型                          | 4    |      |
 | bool类型                           | 5    |      |
 | 各类数组，数组检查                 | 5    |      |
+| char类型                           | 5    |      |
 |                                    |      |      |
 
 #### 项目说明：
@@ -392,9 +393,43 @@
 
 ### 13、float
 
+测试代码1号为_float1.c
+
+![test14](assets/test14_1.png)
+
+![test14](assets/test14_2.png)
+
+要先运行java虚拟机，报错的话就加上代码参数 `-encoding UTF-8`
 
 
-### 14、bool等
+
+### 14、for循环的初始版本
+
+因为这个版本和后面的for in range 写法有冲突，所以去掉了，时间来得及的话再加上
+
+![test15](assets/test15_1.png)
+
+运行结果如下
+
+![](assets/test15_2.png)
+
+
+
+### 15、char
+
+ 测试程序为testChar.c
+
+![](assets/test16_1.png)
+
+运行结果如下
+
+![](assets/test16_2.png)
+
+
+
+### 15、bool等
+
+
 
 
 
