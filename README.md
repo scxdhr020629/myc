@@ -369,6 +369,18 @@ dotnet build -t:ccrunx86 microc.fsproj
 
 ![test2](assets/test2_5.png)
 
+编译器：
+
+测试：
+
+![test2](assets/test2_6.png)
+
+输出：（输入5 ，输出10）
+
+![test2](assets/test2_7.png)
+
+![test2](assets/test2_8.png)
+
 ### 3、实现DoUntil
 
 与DoWhile类似，只不过`v`不等于0（条件为假）继续执行循环
@@ -390,6 +402,16 @@ dotnet build -t:ccrunx86 microc.fsproj
 程序结束后的输出以及store环境：
 
 ![test3](assets/test3_4.png)
+
+**编译器：**
+
+测试：
+
+![test3](assets/test3_5.png)
+
+输出：5
+
+![test3](assets/test3_6.png)
 
 ### 4、三目运算
 
@@ -575,6 +597,16 @@ x--：
 
 ![test11](assets/test11_4.png)
 
+**编译器：**
+
+测试：
+
+![test11](assets/test11_5.png)
+
+输出：（输入为2，输出2）
+
+![test11](assets/test11_6.png)
+
 ### 12、变量声明时赋值
 
 测试代码testCase/test12.c
@@ -593,13 +625,23 @@ x--：
 
 ![test12](assets/test12_4.png)
 
+**编译器：**
+
+测试：
+
+![test12](assets/test12_5.png)
+
+输出：1
+
+![test12](assets/test12_6.png)
+
 ### 13、 两个下划线开头的名字__是内部保留，不允许
 
 测试代码testCase/test13.c
 
 改名为 _var.c
 
-![test13](assets/test13_1.png)4
+![test13](assets/test13_1.png)
 
 出错提醒：cannot use variable with start __
 
