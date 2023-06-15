@@ -26,10 +26,6 @@ E:\SecondHalfOfJuniorYear\FundamentalsOfCompiling\plzoofs_new\plzoofs\microc\obj
 E:\SecondHalfOfJuniorYear\FundamentalsOfCompiling\plzoofs_new\plzoofs\microc\obj\Debug\net6.0\microc.dll
 E:\SecondHalfOfJuniorYear\FundamentalsOfCompiling\plzoofs_new\plzoofs\microc\obj\Debug\net6.0\microc.pdb
 E:\SecondHalfOfJuniorYear\FundamentalsOfCompiling\plzoofs_new\plzoofs\microc\obj\Debug\net6.0\microc.genruntimeconfig.cache
-d:\GitHubRepository\microc\obj\Debug\net6.0\microc.AssemblyInfoInputs.cache
-d:\GitHubRepository\microc\obj\Debug\net6.0\microc.AssemblyInfo.fs
-d:\GitHubRepository\microc\obj\Debug\net6.0\microc.dll
-d:\GitHubRepository\microc\obj\Debug\net6.0\microc.pdb
 D:\microc\bin\Debug\net6.0\microc.exe
 D:\microc\bin\Debug\net6.0\microc.deps.json
 D:\microc\bin\Debug\net6.0\microc.runtimeconfig.json

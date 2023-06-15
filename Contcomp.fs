@@ -84,8 +84,20 @@ let addJump jump C =                    (* jump is GOTO or RET *)
                                       else GOTO lab1 :: C1
     | _                            -> jump :: C1
     
-let addGOTO lab C =
-    addJump (GOTO lab) C
+// let addGOTO lab C =
+//     addJump (GOTO lab) C
+
+
+let addGOTO label restCode =
+    addJump (GOTO label) restCode
+
+// 头的 label 
+let rec headlab labs = 
+    match labs with
+        | headLab :: rest -> headLab
+        // 拿到头
+        | []        -> failwith "Error: unknown break"
+
 
 let rec addCST i C =
     match (i, C) with
