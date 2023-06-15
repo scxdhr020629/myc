@@ -21,33 +21,9 @@
 
 - 常睿嘉：
 
-<img align=left src="assets/commit1.png" width="40%"><img align=right src="assets/commit2.png" width="25%">
+![commit_crj](assets/commit1.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![commit_crj](assets/commit2.png)
 
 - 司晨旭：
 
@@ -136,25 +112,25 @@
 
 未加(* *)时，输入2，输出5：
 
-![test1](D:/microc/assets/test1_1.png)
+![test1](assets/test1_1.png)
 
-![test1](D:/microc/assets/test1_2.png)
+![test1](assets/test1_2.png)
 
 增加(* *)时，输入2，输出2：
 
-![test1](D:/microc/assets/test1_3.png)
+![test1](assets/test1_3.png)
 
-![test1](D:/microc/assets/test1_4.png)
+![test1](assets/test1_4.png)
 
 生成的token序列以及抽象语法树：
 
-![test1](D:/microc/assets/test1_5.png)
+![test1](assets/test1_5.png)
 
 程序结束后的输出以及store环境：
 
-![test1](D:/microc/assets/test1_6.png)
+![test1](assets/test1_6.png)
 
-![test1](D:/microc/assets/test1_7.png)
+![test1](assets/test1_7.png)
 
 ### 2、实现DoWhile
 
@@ -164,33 +140,33 @@
 
 输入2，输出0：
 
-![test2](D:/microc/assets/test2_1.png)
+![test2](assets/test2_1.png)
 
-![test2](D:/microc/assets/test2_2.png)
+![test2](assets/test2_2.png)
 
 输入5，输出10：
 
-![test2](D:/microc/assets/test2_3.png)
+![test2](assets/test2_3.png)
 
 生成的token序列以及抽象语法树：
 
-![test2](D:/microc/assets/test2_4.png)
+![test2](assets/test2_4.png)
 
 程序结束后的输出以及store环境：
 
-![test2](D:/microc/assets/test2_5.png)
+![test2](assets/test2_5.png)
 
 **编译器：**
 
 测试：
 
-![test2](D:/microc/assets/test2_6.png)
+![test2](assets/test2_6.png)
 
 输出：（输入5 ，输出10）
 
-![test2](D:/microc/assets/test2_7.png)
+![test2](assets/test2_7.png)
 
-![test2](D:/microc/assets/test2_8.png)
+![test2](assets/test2_8.png)
 
 ### 3、实现DoUntil
 
@@ -202,27 +178,27 @@
 
 无输入，经过do until循环后，输出5：
 
-![test3](D:/microc/assets/test3_1.png)
+![test3](assets/test3_1.png)
 
-![test3](D:/microc/assets/test3_2.png)
+![test3](assets/test3_2.png)
 
 生成的token序列以及抽象语法树：
 
-![test3](D:/microc/assets/test3_3.png)
+![test3](assets/test3_3.png)
 
 程序结束后的输出以及store环境：
 
-![test3](D:/microc/assets/test3_4.png)
+![test3](assets/test3_4.png)
 
 **编译器：**
 
 测试：
 
-![test3](D:/microc/assets/test3_5.png)
+![test3](assets/test3_5.png)
 
 输出：5
 
-![test3](D:/microc/assets/test3_6.png)
+![test3](assets/test3_6.png)
 
 ### 4、三目运算
 
@@ -232,55 +208,55 @@
 
 当`?`前的表达式的值为真时：
 
-![test4](D:/microc/assets/test4_1.png)
+![test4](assets/test4_1.png)
 
-![test4](D:/microc/assets/test4_2.png)
+![test4](assets/test4_2.png)
 
 当`?`前的表达式的值为假时：
 
-![test4](D:/microc/assets/test4_3.png)
+![test4](assets/test4_3.png)
 
-![test4](D:/microc/assets/test4_4.png)
+![test4](assets/test4_4.png)
 
 生成的token序列以及抽象语法树：
 
-![test4](D:/microc/assets/test4_5.png)
+![test4](assets/test4_5.png)
 
 程序结束后的输出以及store环境：
 
-![test4](D:/microc/assets/test4_6.png)
+![test4](assets/test4_6.png)
 
 ### 5、+=、-=、*=、/=、%=
 
 测试代码testCase/assignmentOperators.c
 
-![test6](D:/microc/assets/test6_1.png)
+![test6](assets/test6_1.png)
 
-![test6](D:/microc/assets/test6_2.png)
+![test6](assets/test6_2.png)
 
 生成的token序列以及抽象语法树：
 
-![test6](D:/microc/assets/test6_3.png)
+![test6](assets/test6_3.png)
 
 程序结束后的输出以及store环境：
 
-![test6](D:/microc/assets/test6_4.png)
+![test6](assets/test6_4.png)
 
 **+=编译器：**
 
 测试代码：
 
-![test6](D:/microc/assets/test6_7.png)
+![test6](assets/test6_7.png)
 
 成功编译：
 
-![test6](D:/microc/assets/test6_5.png)
+![test6](assets/test6_5.png)
 
-![test6](D:/microc/assets/test6_8.png)
+![test6](assets/test6_8.png)
 
 虚拟机构建与执行：输出为2
 
-![test6](D:/microc/assets/test6_6.png)
+![test6](assets/test6_6.png)
 
 ### 6、for i in range(until){...}
 
@@ -288,119 +264,119 @@
 
 更名为 forIn1.c
 
-![test7](D:/microc/assets/test7_1.png)
+![test7](assets/test7_1.png)
 
-![test7](D:/microc/assets/test7_2.png)
+![test7](assets/test7_2.png)
 
 ### 7、for i in range(start, until){...}
 
 测试代码testCase/forIn2.c
 
-![test8](D:/microc/assets/test8_1.png)
+![test8](assets/test8_1.png)
 
-![test8](D:/microc/assets/test8_2.png)
+![test8](assets/test8_2.png)
 
 生成的token序列以及抽象语法树：
 
-![test8](D:/microc/assets/test8_3.png)
+![test8](assets/test8_3.png)
 
 程序结束后的输出以及store环境：
 
-![test8](D:/microc/assets/test8_4.png)
+![test8](assets/test8_4.png)
 
 ### 8、for i in range(start, until, step){...}
 
 测试代码testCase/forIn3.c
 
-![test9](D:/microc/assets/test9_1.png)
+![test9](assets/test9_1.png)
 
-![test9](D:/microc/assets/test9_2.png)
+![test9](assets/test9_2.png)
 
 生成的token序列以及抽象语法树：
 
-![test9](D:/microc/assets/test9_3.png)
+![test9](assets/test9_3.png)
 
 程序结束后的输出以及store环境：
 
-![test9](D:/microc/assets/test9_4.png)
+![test9](assets/test9_4.png)
 
 ### 9、i++ i--和++i --i
 
 测试代码testCase/incAndDec.c
 
-![test10](D:/microc/assets/test10_1.png)
+![test10](assets/test10_1.png)
 
-![test10](D:/microc/assets/test10_2.png)
+![test10](assets/test10_2.png)
 
 生成的token序列以及抽象语法树：
 
-![test10](D:/microc/assets/test10_3.png)
+![test10](assets/test10_3.png)
 
 程序结束后的输出以及store环境：
 
-![test10](D:/microc/assets/test10_4.png)
+![test10](assets/test10_4.png)
 
 **编译器：**
 
 测试：
 
-![test10](D:/microc/assets/test10_5.png)
+![test10](assets/test10_5.png)
 
 输出：9 9 10 10
 
-![test10](D:/microc/assets/test10_6.png)
+![test10](assets/test10_6.png)
 
 ### 10、switch case
 
 测试代码testCase/mySwitch.c
 
-![test11](D:/microc/assets/test11_1.png)
+![test11](assets/test11_1.png)
 
-![test11](D:/microc/assets/test11_2.png)
+![test11](assets/test11_2.png)
 
 生成的token序列以及抽象语法树：
 
-![test11](D:/microc/assets/test11_3.png)
+![test11](assets/test11_3.png)
 
 程序结束后的输出以及store环境：
 
-![test11](D:/microc/assets/test11_4.png)
+![test11](assets/test11_4.png)
 
 **编译器：**
 
 测试：
 
-![test11](D:/microc/assets/test11_5.png)
+![test11](assets/test11_5.png)
 
 输出：（输入为2，输出2）
 
-![test11](D:/microc/assets/test11_6.png)
+![test11](assets/test11_6.png)
 
 ### 11、变量声明时赋值
 
 测试代码testCase/varInit.c
 
-![test12](D:/microc/assets/test12_1.png)
+![test12](assets/test12_1.png)
 
-![test12](D:/microc/assets/test12_2.png)
+![test12](assets/test12_2.png)
 
 生成的token序列以及抽象语法树：
 
-![test12](D:/microc/assets/test12_3.png)
+![test12](assets/test12_3.png)
 
 程序结束后的输出以及store环境：
 
-![test12](D:/microc/assets/test12_4.png)
+![test12](assets/test12_4.png)
 
 **编译器：**
 
 测试：
 
-![test12](D:/microc/assets/test12_5.png)
+![test12](assets/test12_5.png)
 
 输出：1
 
-![test12](D:/microc/assets/test12_6.png)
+![test12](assets/test12_6.png)
 
 ### 12、 两个下划线开头的名字__是内部保留，不允许
 
@@ -408,11 +384,11 @@
 
 改名为 _var.c
 
-![test13](D:/microc/assets/test13_1.png)
+![test13](assets/test13_1.png)
 
 出错提醒：cannot use variable with start __
 
-![test13](D:/microc/assets/test13_2.png)
+![test13](assets/test13_2.png)
 
 ### 13、float
 
