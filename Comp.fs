@@ -159,6 +159,10 @@ let makeGlobalEnvs (topdecs: topdec list) : VarEnv * FunEnv * instr list =
                 let (varEnv1, code1) = allocateWithMsg Glovar (typ, var) varEnv
                 let (varEnvr, funEnvr, coder) = addv decr varEnv1 funEnv
                 (varEnvr, funEnvr, code1 @ coder)
+            | VarDecWithAssign (typ, x, e) -> //= 返回环境
+                let (varEnv1, code1) = allocate Glovar (typ, x) varEnv
+                let (varEnvr, funEnvr, coder) = addv decr varEnv1 funEnv
+                (varEnvr, funEnvr, code1 @ coder)
             | Fundec (tyOpt, f, xs, body) -> addv decr varEnv ((f, ($"{newLabel ()}_{f}", tyOpt, xs)) :: funEnv)
 
     addv topdecs ([], 0) []
@@ -201,6 +205,49 @@ let rec cStmt stmt (varEnv: VarEnv) (funEnv: FunEnv) : instr list =
         @ cStmt body varEnv funEnv
           @ [ Label labtest ]
             @ cExpr e varEnv funEnv @ [ IFNZRO labbegin ]
+    | DoWhile (body, e) ->
+        let labbegin = newLabel ()
+        let labtest = newLabel ()
+
+        cStmt body varEnv funEnv
+            @[ GOTO labtest]
+                @[Label labbegin ] 
+                @ cStmt body varEnv funEnv
+                @ [ Label labtest ] 
+                @ cExpr e varEnv funEnv 
+                @ [ IFNZRO labbegin ]
+    | DoUntil (body, e) ->
+        let labbegin = newLabel ()
+        let labtest = newLabel ()
+
+        cStmt body varEnv funEnv
+            @[ GOTO labtest] 
+                @[Label labbegin ] 
+                @ cStmt body varEnv funEnv
+                @ [ Label labtest ] 
+                @ cExpr e varEnv funEnv  
+                @ [ IFZERO labbegin ]
+    | Switch (e, cases) ->
+        let rec searchcases c =
+            match c with
+            | Case (e, body) :: tail ->
+                let labend = newLabel ()
+                let labfin = newLabel ()
+
+                [DUP]
+                  @ cExpr e varEnv funEnv
+                    @ [EQ]
+                      @ [ IFZERO labend ]
+                        @ cStmt body varEnv funEnv
+                          @ [ GOTO labfin ]
+                            @ [ Label labend ]
+                              @ searchcases tail
+                                @ [ Label labfin ]
+            | [] -> []
+
+        cExpr e varEnv funEnv 
+          @ searchcases cases
+            @[INCSP -1]
     | Expr e -> cExpr e varEnv funEnv @ [ INCSP -1 ]
     | Block stmts ->
 
@@ -223,6 +270,13 @@ and cStmtOrDec stmtOrDec (varEnv: VarEnv) (funEnv: FunEnv) : VarEnv * instr list
     match stmtOrDec with
     | Stmt stmt -> (varEnv, cStmt stmt varEnv funEnv)
     | Dec (typ, x) -> allocateWithMsg Locvar (typ, x) varEnv
+    | DecWithAssign (typ, x, e) -> //=给x赋值e
+        let (varEnv, code) = allocate Locvar (typ, x) varEnv
+
+        (varEnv,
+         code
+         @ (cExpr (Assign((AccVar x), e)) varEnv funEnv)
+           @ [ INCSP -1 ])//赋完值缩减栈
 
 (* Compiling micro-C expressions:
 

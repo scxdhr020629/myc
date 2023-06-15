@@ -56,7 +56,7 @@ class Machine
       PRINTI = 22, PRINTC = 23,  //库函数
       LDARGS = 24,  //参数
       STOP = 25;  //停机
-      CSTF = 26, CSTC = 27;
+
     const int STACKSIZE = 10000;
 
     // Read code from file and execute it
@@ -95,10 +95,6 @@ class Machine
             {
                 case CSTI:
                     s[sp + 1] = p[pc++]; sp++; break;
-                case CSTF:
-                    s[sp + 1] = p[pc++]; sp++; break;
-                case CSTC:
-                    s[sp + 1] = p[pc++]; sp++; break;                    
                 case ADD:
                     s[sp - 1] = s[sp - 1] + s[sp]; sp--; break;
                 case SUB:
@@ -189,8 +185,6 @@ class Machine
         switch (p[pc])
         {
             case CSTI: return "CSTI " + p[pc + 1];
-            case CSTF: return "CSTF " + p[pc + 1];
-            case CSTC: return "CSTC " + p[pc + 1];            
             case ADD: return "ADD";
             case SUB: return "SUB";
             case MUL: return "MUL";
