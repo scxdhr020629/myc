@@ -152,7 +152,8 @@ StmtM:  /* No unbalanced if-else */
   | WHILE LPAR Expr RPAR StmtM          { While($3, $5)        }
   | DO StmtM WHILE LPAR Expr RPAR SEMI  { DoWhile($2,$5) }
   | DO StmtM UNTIL LPAR Expr RPAR SEMI  { DoUntil($2,$5) }
-  | FOR LPAR Expr SEMI Expr SEMI StmtM RPAR StmtM  { For($3,$5,$7,$9)     } /* 即 for (i=0; i<=5; i+=1;){print i;} */
+  // | FOR LPAR Expr SEMI Expr SEMI StmtM RPAR StmtM  { For($3,$5,$7,$9)     } /* 即 for (i=0; i<=5; i+=1;){print i;} */
+  | FOR LPAR Expr SEMI Expr SEMI Expr RPAR StmtM     { For($3,$5,$7,$9)  }   
   | FOR NAME IN RANGE LPAR Expr RPAR StmtM                              { ForInRange1($2,$6,$8) }
   | FOR NAME IN RANGE LPAR Expr COMMA Expr RPAR StmtM                   { ForInRange2($2,$6,$8,$10) }
   | FOR NAME IN RANGE LPAR Expr COMMA Expr COMMA Expr RPAR StmtM        { ForInRange3($2,$6,$8,$10,$12) }

@@ -106,7 +106,11 @@
 
 #### 功能实现及解决技术要点说明：
 
+<<<<<<< HEAD
 ### 1、增加注释的表示方式(* *)
+=======
+##### 1、增加注释的表示方式(* *)
+>>>>>>> 527d89821cecf1efc1d378e9ca84348cde1aa398
 
 测试代码testCase/starComment.c
 
@@ -132,7 +136,7 @@
 
 ![test1](assets/test1_7.png)
 
-### 2、实现DoWhile
+##### 2、实现DoWhile
 
 先执行函数体`body `的内容，因为执行`exec`会改变`store`的内容，所以先返回变更的环境；然后将`do`中表达式的值传给`v`  如果条件等于0（条件为真）就继续执行循环
 
@@ -168,7 +172,11 @@
 
 ![test2](assets/test2_8.png)
 
+<<<<<<< HEAD
 ### 3、实现DoUntil
+=======
+##### 3、实现DoUntil
+>>>>>>> 527d89821cecf1efc1d378e9ca84348cde1aa398
 
 与DoWhile类似，只不过`v`不等于0（条件为假）继续执行循环
 
@@ -200,7 +208,11 @@
 
 ![test3](assets/test3_6.png)
 
+<<<<<<< HEAD
 ### 4、三目运算
+=======
+##### 4、三目运算
+>>>>>>> 527d89821cecf1efc1d378e9ca84348cde1aa398
 
 三目运算符为右值表达式，如果`?`前的表达式的值为真时，将`:`前的值存入，否则存入`:`后的值
 
@@ -226,7 +238,11 @@
 
 ![test4](assets/test4_6.png)
 
+<<<<<<< HEAD
 ### 5、+=、-=、*=、/=、%=
+=======
+##### 5、+=、-=、*=、/=、%=
+>>>>>>> 527d89821cecf1efc1d378e9ca84348cde1aa398
 
 测试代码testCase/assignmentOperators.c
 
@@ -258,7 +274,11 @@
 
 ![test6](assets/test6_6.png)
 
+<<<<<<< HEAD
 ### 6、for i in range(until){...}
+=======
+##### 6、for i in range(until){...}
+>>>>>>> 527d89821cecf1efc1d378e9ca84348cde1aa398
 
 测试代码testCase/test7.c
 
@@ -268,7 +288,11 @@
 
 ![test7](assets/test7_2.png)
 
+<<<<<<< HEAD
 ### 7、for i in range(start, until){...}
+=======
+##### 7、for i in range(start, until){...}
+>>>>>>> 527d89821cecf1efc1d378e9ca84348cde1aa398
 
 测试代码testCase/forIn2.c
 
@@ -284,7 +308,11 @@
 
 ![test8](assets/test8_4.png)
 
+<<<<<<< HEAD
 ### 8、for i in range(start, until, step){...}
+=======
+##### 8、for i in range(start, until, step){...}
+>>>>>>> 527d89821cecf1efc1d378e9ca84348cde1aa398
 
 测试代码testCase/forIn3.c
 
@@ -300,7 +328,11 @@
 
 ![test9](assets/test9_4.png)
 
+<<<<<<< HEAD
 ### 9、i++ i--和++i --i
+=======
+##### 9、i++ i--和++i --i
+>>>>>>> 527d89821cecf1efc1d378e9ca84348cde1aa398
 
 测试代码testCase/incAndDec.c
 
@@ -326,7 +358,11 @@
 
 ![test10](assets/test10_6.png)
 
+<<<<<<< HEAD
 ### 10、switch case
+=======
+##### 10、switch case
+>>>>>>> 527d89821cecf1efc1d378e9ca84348cde1aa398
 
 测试代码testCase/mySwitch.c
 
@@ -352,7 +388,11 @@
 
 ![test11](assets/test11_6.png)
 
+<<<<<<< HEAD
 ### 11、变量声明时赋值
+=======
+##### 11、变量声明时赋值
+>>>>>>> 527d89821cecf1efc1d378e9ca84348cde1aa398
 
 测试代码testCase/varInit.c
 
@@ -378,7 +418,11 @@
 
 ![test12](assets/test12_6.png)
 
+<<<<<<< HEAD
 ### 12、 两个下划线开头的名字__是内部保留，不允许
+=======
+##### 12、 两个下划线开头的名字__是内部保留，不允许
+>>>>>>> 527d89821cecf1efc1d378e9ca84348cde1aa398
 
 测试代码testCase/test13.c
 
@@ -390,11 +434,17 @@
 
 ![test13](assets/test13_2.png)
 
+<<<<<<< HEAD
 ### 13、float
 
 
 
 ### 14、bool等
+=======
+##### 13、float
+
+##### 14、bool等
+>>>>>>> 527d89821cecf1efc1d378e9ca84348cde1aa398
 
 
 

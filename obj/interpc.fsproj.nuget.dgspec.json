@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHubRepository\\microc\\interpc.fsproj": {}
+    "d:\\GitHubRepository\\microc\\interpc.fsproj": {}
   },
   "projects": {
-    "D:\\GitHubRepository\\microc\\interpc.fsproj": {
+    "d:\\GitHubRepository\\microc\\interpc.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHubRepository\\microc\\interpc.fsproj",
+        "projectUniqueName": "d:\\GitHubRepository\\microc\\interpc.fsproj",
         "projectName": "interpc",
-        "projectPath": "D:\\GitHubRepository\\microc\\interpc.fsproj",
+        "projectPath": "d:\\GitHubRepository\\microc\\interpc.fsproj",
         "packagesPath": "C:\\Users\\12820\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHubRepository\\microc\\obj\\",
+        "outputPath": "d:\\GitHubRepository\\microc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\12820\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -31,7 +31,8 @@ let keyword s =
     | "return"  -> RETURN
     | "true"    -> CSTBOOL 1
     | "void"    -> VOID 
-    | "while"   -> WHILE      
+    | "while"   -> WHILE  
+    | "float"   -> FLOAT         
     | "do"      -> DO   
     | "until"   -> UNTIL  
     | "case"    -> CASE    
