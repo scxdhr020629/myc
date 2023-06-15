@@ -597,16 +597,6 @@ x--：
 
 ![test11](assets/test11_4.png)
 
-**编译器：**
-
-测试：
-
-![test11](assets/test11_5.png)
-
-输出：（输入为2，输出2）
-
-![test11](assets/test11_6.png)
-
 ### 12、变量声明时赋值
 
 测试代码testCase/test12.c

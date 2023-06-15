@@ -20,11 +20,10 @@ let third(_,_,c) = c
 
 %token <int> CSTINT CSTBOOL  // <int> 是词元的语义值类型
 %token <string> CSTSTRING NAME
-
-%token <char> CSTCHAR   
 %token <float32> CSTFLOAT
+%token <char> CSTCHAR   // 这个感觉是不要加的
 
-%token CHAR ELSE IF INT FLOAT STRING NULL PRINT PRINTLN RETURN VOID WHILE DO UNTIL FOR IN RANGE
+%token CHAR ELSE IF INT NULL PRINT PRINTLN RETURN VOID WHILE DO UNTIL FOR IN RANGE
 %token PLUS MINUS TIMES DIV MOD ADDADD MINUSMINUS ADDASS MINUSASS TIMESASS DIVASS MODASS
 %token EQ NE GT LT GE LE
 %token NOT SEQOR SEQAND
@@ -250,20 +249,6 @@ Const:
   | MINUS CSTINT                        { - $2     }
   | NULL                                { -1       }
 ;
-
-
-ConstString:
-  CSTSTRING                             { $1       }
-;
-
-ConstFloat:
-    CSTFLOAT                            { $1       }
-;
-
-ConstChar:
-  CSTCHAR                               { $1       }
-;
-
 
 Type:
     INT                                 { TypI     }
