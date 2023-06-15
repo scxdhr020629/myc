@@ -25,6 +25,8 @@ let keyword s =
     | "range"   -> RANGE
     | "if"      -> IF
     | "int"     -> INT
+    | "float"   -> FLOAT
+    | "string"  -> STRING    
     | "null"    -> NULL
     | "print"   -> PRINT
     | "println" -> PRINTLN
@@ -66,6 +68,8 @@ rule Token = parse          // 每个 规则rule 会生成为一个函数，函�
                             // 在 CPar 中  词元CSTINT 的语义值的类型是int  %token <int> CSTINT
                             //  CSTINT 需要一个整数作为参数
   | "__"['a'-'z''A'-'Z''0'-'9']*   {failwith "cannot use variable with start __ "}
+  | ['0'-'9']+'.'['0'-'9']+ 
+                    { CSTFLOAT (System.Single.Parse (lexemeAsString lexbuf)) }   
   | ['a'-'z''A'-'Z']['a'-'z''A'-'Z''0'-'9']*
                     { keyword (lexemeAsString lexbuf) } //标识符处理
                                                        //先查是否是关键字，是则返回对应关键字的Token

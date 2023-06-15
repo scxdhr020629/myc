@@ -20,8 +20,10 @@ let third(_,_,c) = c
 
 %token <int> CSTINT CSTBOOL  // <int> 是词元的语义值类型
 %token <string> CSTSTRING NAME
+%token <float32> CSTFLOAT
+%token <char> CSTCHAR 
 
-%token CHAR ELSE IF INT NULL PRINT PRINTLN RETURN VOID WHILE DO UNTIL FOR IN RANGE
+%token CHAR ELSE IF INT FLOAT STRING NULL PRINT PRINTLN RETURN VOID WHILE DO UNTIL FOR IN RANGE
 %token PLUS MINUS TIMES DIV MOD ADDADD MINUSMINUS ADDASS MINUSASS TIMESASS DIVASS MODASS
 %token EQ NE GT LT GE LE
 %token NOT SEQOR SEQAND
@@ -215,6 +217,9 @@ AtExprNotAccess:
     // AMP Access  , &x
     // (3)   
     Const                               { CstI $1             }
+  | ConstString                         { CstS($1)            }
+  | ConstFloat                          { CstF($1)            }
+  | ConstChar                           { CstC($1)            }  
   | LPAR ExprNotAccess RPAR             { $2                  } 
   | AMP Access                          { Addr $2             } // 取地址
 ;
@@ -244,7 +249,26 @@ Const:
   | NULL                                { -1       }
 ;
 
+
+ConstString:
+  CSTSTRING                             { $1       }
+;
+
+ConstFloat:
+    CSTFLOAT                            { $1       }
+  | MINUS CSTFLOAT                      { - $2     }
+;
+
+ConstChar:
+  CSTCHAR                               { $1       }
+;
+
+
+
+
 Type:
     INT                                 { TypI     }
   | CHAR                                { TypC     }
+  | STRING                              { TypS     }
+  | FLOAT                               { TypF     }  
 ;
