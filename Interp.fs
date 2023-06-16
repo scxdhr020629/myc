@@ -502,6 +502,29 @@ and eval e locEnv gloEnv store : int * store =
             | _ -> failwith ("unknown primitive " + ope)
 
         (res, store2)
+    | Printf (s, exprs) ->
+        let rec evalExprs exprs store1 =  // 循环计算printf后面所有表达式的值
+            match exprs with
+            | e :: tail ->  
+                let (v, store2) = eval e locEnv gloEnv store1 
+                let (vlist, store3) = evalExprs tail store2
+                ([v] @ vlist, store3)
+            | [] -> ([], store1)
+        let (evals, store1) = evalExprs exprs store
+
+
+        let getPrintString =
+            let mutable i = 0
+            let slist = s.Split('%')
+            let mutable resString = slist.[0]
+            let mutable i = 1
+            while i < slist.Length do
+                resString <- resString + evals.[i-1].ToString() + slist.[i].[1..]
+                i <- i + 1
+            printf "%s" resString
+            1  // 返回1
+        (getPrintString, store1)
+
     | Andalso (e1, e2) ->
         let (i1, store1) as res = eval e1 locEnv gloEnv store
 

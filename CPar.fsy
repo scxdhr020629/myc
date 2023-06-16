@@ -23,7 +23,7 @@ let third(_,_,c) = c
 %token <float32> CSTFLOAT
 %token <char> CSTCHAR 
 
-%token CHAR ELSE IF INT FLOAT STRING NULL PRINT PRINTLN RETURN VOID WHILE DO UNTIL FOR IN RANGE
+%token CHAR ELSE IF INT FLOAT STRING NULL PRINT PRINTLN PRINTF RETURN VOID WHILE DO UNTIL FOR IN RANGE
 %token PLUS MINUS TIMES DIV MOD ADDADD MINUSMINUS ADDASS MINUSASS TIMESASS DIVASS MODASS
 %token EQ NE GT LT GE LE
 %token NOT SEQOR SEQAND
@@ -191,6 +191,7 @@ ExprNotAccess:
   | NOT Expr                            { Prim1("!", $2)      }
   | PRINT Expr                          { Prim1("printi", $2) }
   | PRINTLN                             { Prim1("printc", nl) }
+  | PRINTF LPAR CSTSTRING PrintfAccess RPAR  { Printf($3, $4)}  
   | Expr PLUS  Expr                     { Prim2("+",  $1, $3) }
   | Expr MINUS Expr                     { Prim2("-",  $1, $3) }
   | Expr TIMES Expr                     { Prim2("*",  $1, $3) }
@@ -210,6 +211,12 @@ ExprNotAccess:
   | Access MINUSMINUS                   { NextMinus($1)      }
   | Expr QUES Expr COLON Expr           { Bino($1,$3,$5)}
 ;
+
+PrintfAccess:
+    /* empty */                         { [] }
+  | COMMA Expr                          { [$2] }
+  | COMMA Expr PrintfAccess               { [$2] @ $3 }
+
 
 AtExprNotAccess:
     //不可以为左值的的基本情况 

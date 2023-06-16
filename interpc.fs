@@ -1,6 +1,6 @@
 open CPar
 open Interp
-
+open System
 let fromFile = Parse.fromFile
 let run = Interp.run
 let argv = System.Environment.GetCommandLineArgs()

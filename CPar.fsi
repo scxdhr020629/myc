@@ -46,6 +46,7 @@ type token =
   | NULL
   | PRINT
   | PRINTLN
+  | PRINTF
   | RETURN
   | VOID
   | WHILE
@@ -106,6 +107,7 @@ type tokenId =
     | TOKEN_NULL
     | TOKEN_PRINT
     | TOKEN_PRINTLN
+    | TOKEN_PRINTF
     | TOKEN_RETURN
     | TOKEN_VOID
     | TOKEN_WHILE
@@ -141,6 +143,7 @@ type nonTerminalId =
     | NONTERM_StmtU
     | NONTERM_Expr
     | NONTERM_ExprNotAccess
+    | NONTERM_PrintfAccess
     | NONTERM_AtExprNotAccess
     | NONTERM_Access
     | NONTERM_Exprs

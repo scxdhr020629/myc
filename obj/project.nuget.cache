@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "EePS8sIpLq2NgowlPrRyTjFMcG0CwWepm6QPwhhypEG8F0cq7UggUQfRP4qO1aKExAFH2aeBxbhAFU9Ath2QCw==",
+  "dgSpecHash": "1sF55reCGlvwm2iSwYGFpp/pDT/ff45htzKzhSVJ79pgws7m04vDXUA4Qa4nIWHIhsliojku1kVFaT7fCtF0zw==",
   "success": true,
-  "projectFilePath": "d:\\GitHubRepository\\microc\\microcc.fsproj",
+  "projectFilePath": "D:\\GitHubRepository\\microc\\interpc.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\12820\\.nuget\\packages\\fsharp.core\\7.0.200\\fsharp.core.7.0.200.nupkg.sha512",
-    "C:\\Users\\12820\\.nuget\\packages\\fslexyacc\\10.0.0\\fslexyacc.10.0.0.nupkg.sha512",
-    "C:\\Users\\12820\\.nuget\\packages\\fslexyacc.runtime\\10.0.0\\fslexyacc.runtime.10.0.0.nupkg.sha512",
+    "C:\\Users\\12820\\.nuget\\packages\\fslexyacc\\10.2.0\\fslexyacc.10.2.0.nupkg.sha512",
+    "C:\\Users\\12820\\.nuget\\packages\\fslexyacc.runtime\\10.2.0\\fslexyacc.runtime.10.2.0.nupkg.sha512",
     "C:\\Users\\12820\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.15\\microsoft.netcore.app.ref.6.0.15.nupkg.sha512",
     "C:\\Users\\12820\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.15\\microsoft.windowsdesktop.app.ref.6.0.15.nupkg.sha512",
     "C:\\Users\\12820\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.15\\microsoft.aspnetcore.app.ref.6.0.15.nupkg.sha512",
