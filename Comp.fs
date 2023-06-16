@@ -184,6 +184,24 @@ let x86patch code =
    * varenv  is the local and global variable environment
    * funEnv  is the global function environment
 *)
+let mutable lablist : label list = []
+
+let rec headlab labs = 
+    match labs with
+        | lab :: tr -> lab
+        | []        -> failwith "Error: unknown break"
+let rec dellab labs =
+    match labs with
+        | lab :: tr ->   tr
+        | []        ->   []
+
+
+
+
+
+
+
+
 // 编译microc的语句
 let rec cStmt stmt (varEnv: VarEnv) (funEnv: FunEnv) : instr list =
     match stmt with
@@ -199,12 +217,16 @@ let rec cStmt stmt (varEnv: VarEnv) (funEnv: FunEnv) : instr list =
                 @ cStmt stmt2 varEnv funEnv @ [ Label labend ]
     | While (e, body) ->
         let labbegin = newLabel ()
+        // let labtest = newLabel ()
         let labtest = newLabel ()
+        let labend = newLabel ()                
+        lablist <- [labend; labtest; labbegin]        
 
         [ GOTO labtest; Label labbegin ]
         @ cStmt body varEnv funEnv
           @ [ Label labtest ]
-            @ cExpr e varEnv funEnv @ [ IFNZRO labbegin ]
+            // @ cExpr e varEnv funEnv @ [ IFNZRO labbegin ]
+            @ cExpr e varEnv funEnv @ [ IFNZRO labbegin; Label labend]            
     | DoWhile (body, e) ->
         let labbegin = newLabel ()
         let labtest = newLabel ()
@@ -216,6 +238,14 @@ let rec cStmt stmt (varEnv: VarEnv) (funEnv: FunEnv) : instr list =
                 @ [ Label labtest ] 
                 @ cExpr e varEnv funEnv 
                 @ [ IFNZRO labbegin ]
+    | Break -> 
+        let labend = headlab lablist
+        [GOTO labend]
+    | Continue -> 
+        let lablist   = dellab lablist
+        let labbegin = headlab lablist
+        [GOTO labbegin]
+
     | DoUntil (body, e) ->
         let labbegin = newLabel ()
         let labtest = newLabel ()

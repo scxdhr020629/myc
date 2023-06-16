@@ -427,6 +427,38 @@
 
 
 
+### 16、break和continue的编译器
+
+测试代码break_continue1.c
+
+![test17](assets/test17_1.png)
+
+break注释去掉后的运行结果（测试continue）
+
+![test17](assets/test17_2.png)
+
+测试break
+
+![test17](assets/test17_3.png)
+
+
+
+### 17、printf的初始版本
+
+测试代码为
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### 15、bool等
 
 

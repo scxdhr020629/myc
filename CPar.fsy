@@ -23,7 +23,7 @@ let third(_,_,c) = c
 %token <float32> CSTFLOAT
 %token <char> CSTCHAR 
 
-%token CHAR ELSE IF INT FLOAT STRING NULL PRINT PRINTLN PRINTF RETURN VOID WHILE DO UNTIL FOR IN RANGE
+%token CHAR ELSE IF INT FLOAT STRING NULL PRINT PRINTLN PRINTF RETURN VOID WHILE DO UNTIL FOR IN RANGE BREAK CONTINUE
 %token PLUS MINUS TIMES DIV MOD ADDADD MINUSMINUS ADDASS MINUSASS TIMESASS DIVASS MODASS
 %token EQ NE GT LT GE LE
 %token NOT SEQOR SEQAND
@@ -159,6 +159,8 @@ StmtM:  /* No unbalanced if-else */
   | FOR NAME IN RANGE LPAR Expr COMMA Expr RPAR StmtM                   { ForInRange2($2,$6,$8,$10) }
   | FOR NAME IN RANGE LPAR Expr COMMA Expr COMMA Expr RPAR StmtM        { ForInRange3($2,$6,$8,$10,$12) }
   | SWITCH LPAR Expr RPAR LBRACE StmtCase RBRACE    { Switch ($3,$6)}
+  | BREAK SEMI                          { Break }
+  | CONTINUE SEMI                       { Continue }  
 ;
 
 StmtCase:

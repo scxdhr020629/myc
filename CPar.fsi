@@ -55,6 +55,8 @@ type token =
   | FOR
   | IN
   | RANGE
+  | BREAK
+  | CONTINUE
   | CSTCHAR of (char)
   | CSTFLOAT of (float32)
   | CSTSTRING of (string)
@@ -116,6 +118,8 @@ type tokenId =
     | TOKEN_FOR
     | TOKEN_IN
     | TOKEN_RANGE
+    | TOKEN_BREAK
+    | TOKEN_CONTINUE
     | TOKEN_CSTCHAR
     | TOKEN_CSTFLOAT
     | TOKEN_CSTSTRING

@@ -339,6 +339,10 @@ let rec exec stmt (locEnv: locEnv) (gloEnv: gloEnv) (store: store) : store =
 
         loop store
 
+    | Break -> store
+    | Continue -> store
+
+
     | DoUntil (body, e) ->
         let store1=exec body locEnv gloEnv store
         let rec loop store2 =
